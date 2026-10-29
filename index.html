@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALIEF SUKMA DEWANTA // INFORMATION SYSTEMS GRADUATE &amp; BUSINESS TECHNOLOGY ANALYST</title>
+
+  <!-- SEO & Meta Tags -->
+  <meta name="description"
+    content="Tactical portfolio of Alief Sukma Dewanta — Information Systems Graduate, Business & Technology Analyst based in Surabaya, Indonesia. Google PM and IBM Systems Analyst certified MIS graduate from Telkom University.">
+  <meta name="keywords"
+    content="Alief Sukma Dewanta, Business Technology Analyst, IT Project Manager, Systems Analyst, IT Project Coordinator, Telkom University, Google Project Management, IBM Systems Analyst, SAP Certified, Big Data, Odoo ERP, COBIT 2019, TOGAF ADM 9.2">
+  <meta name="author" content="Alief Sukma Dewanta">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Alief Sukma Dewanta — Business &amp; Technology Analyst">
+  <meta property="og:description"
+    content="I turn messy business requirements into hardened systems that ship. Google PM & IBM SA certified MIS graduate with 6+ delivered projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/alief-hero-portrait.png">
+
+  <!-- Google Fonts: Rajdhani (Cyberpunk Display) + JetBrains Mono (Terminal) + Inter (Clean Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar (Neon Top Gauge) -->
+  <div class="reading-progress-bar" id="reading-progress" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (MILITECH DIAGNOSTIC RAIL)
+       ========================================================================= -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#hero" class="wordmark" aria-label="Alief Sukma Dewanta Home">
+        <span class="wordmark-name">ALIEF SUKMA DEWANTA</span>
+        <span class="wordmark-subtitle">[SYS_ID: ALIEF] // SURABAYA_NODE</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link">[01] ABOUT</a>
+        <a href="#projects" class="nav-link">[02] PROJECTS</a>
+        <a href="#experience" class="nav-link">[03] EXPERIENCE</a>
+        <a href="#publications" class="nav-link">[04] RESEARCH</a>
+        <a href="#skills" class="nav-link">[05] SKILLS</a>
+        <a href="#certifications" class="nav-link">[06] CERTS</a>
+        <a href="#education" class="nav-link">[07] EDUCATION</a>
+        <a href="#contact" class="nav-link">[08] CONTACT</a>
+      </nav>
+
+      <!-- Right Actions: Terminal Toggle, Theme, CV -->
+      <div class="nav-right">
+        <!-- Interactive Terminal Console Toggle -->
+        <button class="terminal-toggle-btn" id="terminal-toggle-btn" title="Open Command Terminal (Press ~)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span>[CMD_LINE]</span>
+        </button>
+
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Switch theme" title="Toggle tactical dark/light mode">
+          <svg id="theme-icon-sun" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5" stroke-width="2"></circle>
+            <path stroke-linecap="round" stroke-width="2" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <svg id="theme-icon-moon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
+        <!-- Unified Tactical Download Dropdown (CV & PPTX Deck) -->
+        <div class="nav-dropdown">
+          <button class="btn btn-primary btn-sm nav-dropdown-trigger" id="nav-download-btn" aria-haspopup="true" aria-expanded="false" title="Download CV (PDF) or Portfolio Deck (PPTX)">
+            DOWNLOAD &blacktriangledown;
+          </button>
+          <div class="nav-dropdown-menu" id="nav-download-menu" role="menu">
+            <a href="assets/Alief_Sukma_Dewanta_CV.pdf" download="Alief_Sukma_Dewanta_CV.pdf" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-badge pdf">PDF</span>
+              <span>Curriculum Vitae</span>
+            </a>
+            <a href="assets/Alief_Sukma_Dewanta_Portfolio.pptx" download="Alief_Sukma_Dewanta_Portfolio.pptx" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dropdown-badge ppt">PPTX</span>
+              <span>Portfolio Deck (12 Slides)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+    <a href="#about" class="nav-link">[01] ABOUT</a>
+    <a href="#projects" class="nav-link">[02] PROJECTS</a>
+    <a href="#experience" class="nav-link">[03] EXPERIENCE</a>
+    <a href="#publications" class="nav-link">[04] RESEARCH</a>
+    <a href="#skills" class="nav-link">[05] SKILLS</a>
+    <a href="#certifications" class="nav-link">[06] CERTS</a>
+    <a href="#education" class="nav-link">[07] EDUCATION</a>
+    <a href="#contact" class="nav-link">[08] CONTACT</a>
+    <a href="assets/Alief_Sukma_Dewanta_CV.pdf" download="Alief_Sukma_Dewanta_CV.pdf" class="btn btn-primary"
+      style="margin-top: 1rem;">
+      DOWNLOAD CV (OCT 2026) [PDF]
+    </a>
+    <a href="assets/Alief_Sukma_Dewanta_Portfolio.pptx" download="Alief_Sukma_Dewanta_Portfolio.pptx" class="btn btn-cyan"
+      style="margin-top: 0.5rem;">
+      DOWNLOAD PORTFOLIO DECK [PPTX]
+    </a>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         1. HERO SECTION (TACTICAL OPERATOR HUD)
+         ========================================================================= -->
+    <section class="section hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Text Column -->
+          <div class="hero-text-col">
+            <div class="hero-status-row">
+              <div class="hero-pill">
+                <span class="hero-pill-dot"></span>
+                <span>OPERATOR: MIS GRADUATE // GPA 3.66</span>
+              </div>
+              <div class="hero-telemetry-badge" title="Live Local Time in Surabaya, Indonesia">
+                <span class="telemetry-label">NODE: SRB (UTC+7)</span>
+                <span class="telemetry-time" id="surabaya-time">--:--:-- WIB</span>
+              </div>
+            </div>
+
+            <h1 class="hero-headline">
+              I turn volatile business requirements into <span class="hero-headline-accent">hardened systems that ship.</span>
+            </h1>
+
+            <p class="hero-subheadline">
+              Management Information Systems graduate <strong>(GPA 3.66/4.00, Telkom University, Convocation: Oct 26, 2026)</strong> bridging business stakeholders with technical execution. Delivered three system projects, one ERP rollout, and one big data pipeline with Google Project Management and IBM Systems Analyst credentials.
+            </p>
+
+            <div class="btn-group">
+              <a href="#projects" class="btn btn-primary">
+                VIEW OPERATIONS
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </a>
+              <a href="assets/Alief_Sukma_Dewanta_CV.pdf" download="Alief_Sukma_Dewanta_CV.pdf"
+                class="btn btn-secondary" title="Download Curriculum Vitae (PDF)">
+                DOWNLOAD CV [PDF]
+              </a>
+              <a href="assets/Alief_Sukma_Dewanta_Portfolio.pptx" download="Alief_Sukma_Dewanta_Portfolio.pptx"
+                class="btn btn-secondary" title="Download 12-Slide Portfolio Presentation Deck (.pptx)">
+                PORTFOLIO DECK [PPTX] &darr;
+              </a>
+              <a href="#contact" class="btn btn-cyan btn-sm">
+                INIT_COMMS &rarr;
+              </a>
+            </div>
+
+            <!-- Telemetry Stats HUD -->
+            <div class="hero-stats-row">
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">6+</span>
+                <span class="hero-stat-lbl">Delivered Projects</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">3+</span>
+                <span class="hero-stat-lbl">Leadership Roles</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">5</span>
+                <span class="hero-stat-lbl">Industry Certs</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-num">3.66</span>
+                <span class="hero-stat-lbl">MIS GPA (High Honors)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portrait Column (Cyberware Frame) -->
+          <div class="hero-portrait-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <span class="blueprint-corner bl" aria-hidden="true"></span>
+            <span class="blueprint-corner br" aria-hidden="true"></span>
+            <div class="hero-portrait-frame">
+              <img src="assets/images/alief-hero-portrait.png"
+                alt="Portrait of Alief Sukma Dewanta, Business and Technology Analyst" loading="eager">
+            </div>
+            <div class="hero-portrait-caption">
+              <span>ALIEF SUKMA DEWANTA</span>
+              <span style="color: var(--cp-yellow);">[STATUS: VERIFIED]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         2. ABOUT SECTION (OPERATOR DOSSIER)
+         ========================================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Dossier Overview</span>
+          <h2 class="section-title">Bridging business strategy &amp; technical execution</h2>
+          <p class="section-description">
+            Hands-on background spanning requirements analysis, Enterprise Architecture (TOGAF), IT governance (COBIT 2019), data engineering, and User Acceptance Testing.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Column Narrative -->
+          <div class="about-body">
+            <p>
+              Management Information Systems graduate <strong>(GPA 3.66/4.00)</strong> from Telkom University with broad, hands-on experience across requirements analysis, Enterprise Architecture (TOGAF), IT governance (COBIT 2019), data engineering, and User Acceptance Testing. As Project Coordinator and Requirement Analyst, I translated business needs into functional requirements and UAT scenarios, coordinated developer teams through full SDLC cycles, and validated delivered systems against Acceptance Criteria.
+            </p>
+            <p>
+              A two-semester Enterprise Architecture Laboratory Assistant and co-author of a published TOGAF ADM 9.2 IT Blueprint and a COBIT 2019 IT governance research paper. Built a Python-based stock forecasting system and a 1.5M+ row big data pipeline. Google Project Management Certified, with leadership experience as Chairperson of a 40+ member student legislative council. C2-level English communicator (EF SET 77/100).
+            </p>
+            <p>
+              Beyond technical coursework, I completed an international business exchange program at Hanyang University in South Korea with a <strong>4.50/4.50 GPA (A+, A+)</strong>. These roles grounded my communication: I listen carefully, resolve conflicting priorities, and keep projects moving forward.
+            </p>
+
+            <div class="about-callout">
+              "Effective project coordination is not about rigid bureaucracy; it is about creating clarity so developers can build with confidence and businesses get the outcomes they actually need."
+            </div>
+          </div>
+
+          <!-- Right Column Quick Facts Card -->
+          <aside class="about-facts-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <h4>SPECIFICATION SHEET</h4>
+            <ul class="facts-list">
+              <li class="fact-item">
+                <span class="fact-label">Location / Availability</span>
+                <span class="fact-value">Surabaya, Indonesia (Open to Relocation)</span>
+              </li>
+              <li class="fact-item">
+                <span class="fact-label">Academic Status</span>
+                <span class="fact-value">Graduated Oct 2026 (Convocation: Oct 26, 2026) • GPA 3.66</span>
+              </li>
+              <li class="fact-item">
+                <span class="fact-label">International Study</span>
+                <span class="fact-value">Hanyang University, South Korea (GPA 4.50 / 4.50 • A+, A+)</span>
+              </li>
+              <li class="fact-item">
+                <span class="fact-label">Target Roles</span>
+                <span class="fact-value">IT Project Manager, Business Analyst, Systems Analyst, System Implementor</span>
+              </li>
+              <li class="fact-item">
+                <span class="fact-label">Core Frameworks</span>
+                <span class="fact-value">SDLC (Waterfall &amp; Agile), TOGAF ADM 9.2, COBIT 2019, BPMN</span>
+              </li>
+              <li class="fact-item">
+                <span class="fact-label">Language Competency</span>
+                <span class="fact-value">Indonesian (Native) • English (EF SET 77/100 C2 Advanced, EPrT 557)</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. PROJECTS SECTION (CONTAINERIZED MILITECH HARDWARE UNITS)
+         ========================================================================= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Tactical Deployments</span>
+          <h2 class="section-title">Projects delivered across the IT lifecycle</h2>
+          <p class="section-description">
+            Demonstrating competencies in <strong>IT Project Management</strong> (Agile sprints, UAT, WBS),
+            <strong>Business Analysis</strong> (requirements elicitation, BPMN, user stories), 
+            <strong>Systems Analysis</strong> (UML, ERD, API specs), and 
+            <strong>System Implementation</strong> (ERP rollout, data migration, SOPs).
+          </p>
+        </div>
+
+        <!-- Interactive Role Perspective Filter -->
+        <div class="role-lens-toolbar" aria-label="Filter project deliverables by professional role">
+          <span class="role-lens-caption">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            PERSPECTIVE LENS:
+          </span>
+          <div class="role-lens-pills" role="tablist">
+            <button class="role-lens-btn active" data-lens-btn="all" role="tab" aria-selected="true">
+              ALL DISCIPLINES
+            </button>
+            <button class="role-lens-btn" data-lens-btn="pm" role="tab" aria-selected="false">
+              IT PROJECT MANAGER
+            </button>
+            <button class="role-lens-btn" data-lens-btn="ba" role="tab" aria-selected="false">
+              IT BUSINESS ANALYST
+            </button>
+            <button class="role-lens-btn" data-lens-btn="sa" role="tab" aria-selected="false">
+              SYSTEM ANALYST
+            </button>
+            <button class="role-lens-btn" data-lens-btn="si" role="tab" aria-selected="false">
+              SYSTEM IMPLEMENTOR
+            </button>
+          </div>
+          <div class="role-lens-hint" id="role-lens-status" aria-live="polite">
+            Viewing comprehensive cross-functional deliverables
+          </div>
+        </div>
+
+        <div class="projects-list" data-lens="all" id="projects-list-container">
+          <!-- Project 01: Netafarm OKR System -->
+          <article class="project-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <span class="blueprint-corner bl" aria-hidden="true"></span>
+            <span class="blueprint-corner br" aria-hidden="true"></span>
+            <div class="project-layout">
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-role-badge"><span class="project-role-badge-icon"></span>IT PM &amp; IT BA LEAD</span>
+                    <span class="mono-date">JUN – AUG 2025 // SIDOARJO</span>
+                  </div>
+                  <h3 class="project-title">OKR &amp; Cross-Functional Task Management System</h3>
+                  <p class="project-outcome">
+                    Unified 4 operational divisions into one real-time tracking platform for 50+ staff and 2,000+ agricultural SKUs — backed by verified Business Requirements (BRD) and Functional Specification (FSD) documentation.
+                  </p>
+
+                  <!-- Interactive Data-Shard System -->
+                  <div class="project-shards-wrapper">
+                    <div class="shard-selector-rail">
+                      <button class="shard-slot-btn active" data-shard-role="ba" data-shard-title="IT BUSINESS ANALYST"
+                        data-shard-content="Authored the formal Business Requirements Document (BRD) and Functional Specification Document (FSD / FRD). Elicited stakeholder needs across 4 divisions (Management, Sales, Warehouse, Field Ops), mapping As-Is operational bottlenecks to To-Be OKR workflows, authoring User Stories with Acceptance Criteria, and structuring UAT scenarios. Analyzed user survey data and task completion rates in Excel (IF, VLOOKUP) to validate requirements before engineering handover.">
+                        [⚡ SHARD: IT_BA]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="pm" data-shard-title="IT PROJECT MANAGER"
+                        data-shard-content="Coordinated a 3-person developer team over an 8-week Waterfall cycle in Jira, enforcing strict scope alignment against the approved BRD and FSD baselines. Managed sprint planning, tracked WBS dependencies, conducted black-box & white-box test executions, logged defects, and facilitated UAT sign-off with company leadership, earning an official Certificate of Appreciation.">
+                        [⚡ SHARD: IT_PM]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="sa" data-shard-title="SYSTEM ANALYST"
+                        data-shard-content="Translated FSD functional modules into technical architecture models: designed UML Use Case & Activity diagrams, modeled 3NF-normalized relational MySQL database schemas, and defined granular Role-Based Access Control (RBAC) permission matrices for multi-tier departmental authorization.">
+                        [⚡ SHARD: SYS_ARCH]
+                      </button>
+                    </div>
+
+                    <div class="shard-readout-terminal">
+                      <div class="shard-terminal-header">
+                        <span class="shard-terminal-title">[DECRYPTED: IT BUSINESS ANALYST]</span>
+                        <span>STATUS: ACTIVE_READOUT</span>
+                      </div>
+                      <div class="shard-terminal-text">
+                        Authored the formal Business Requirements Document (BRD) and Functional Specification Document (FSD / FRD). Elicited stakeholder needs across 4 divisions (Management, Sales, Warehouse, Field Ops), mapping As-Is operational bottlenecks to To-Be OKR workflows, authoring User Stories with Acceptance Criteria, and structuring UAT scenarios. Analyzed user survey data and task completion rates in Excel (IF, VLOOKUP) to validate requirements before engineering handover.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-role-box">
+                    <strong>DEPLOYMENT:</strong> Project Coordinator (Internship) • CV. Netafarm Indolestari (Certificate of Appreciation Awarded).
+                  </div>
+                </div>
+
+                <div>
+                  <div class="project-tags">
+                    <span class="tag-pill">BRD (Business Requirements)</span>
+                    <span class="tag-pill">FSD / FRD Specifications</span>
+                    <span class="tag-pill">Waterfall / Jira</span>
+                    <span class="tag-pill">User Stories &amp; Acceptance Criteria</span>
+                    <span class="tag-pill">UAT &amp; Defect Tracking</span>
+                    <span class="tag-pill">Excel (IF, VLOOKUP)</span>
+                    <span class="tag-pill">Laravel &amp; MySQL</span>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center;">
+                    <a href="https://drive.google.com/drive/folders/1Ym-B6uoR0V2FTENJeCdkSvyU6m_mF0q4?usp=sharing"
+                      target="_blank" rel="noopener noreferrer" class="btn btn-cyan btn-sm"
+                      title="Open Google Drive folder containing BRD & FSD deliverables">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      VIEW ARTIFACTS [BRD &amp; FSD] &nearr;
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-lightbox="assets/images/netafarm-admin-dashboard.png"
+                      data-title="Netafarm Admin Dashboard — Real-time OKR and Task Health Overview">
+                      ENLARGE_FEED [IMG]
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-media">
+                <img src="assets/images/netafarm-admin-dashboard.png"
+                  alt="Netafarm Executive Admin Dashboard displaying real-time OKR progress and task completion rates"
+                  loading="lazy" data-lightbox="assets/images/netafarm-admin-dashboard.png"
+                  data-title="Netafarm Executive Dashboard — OKR Status, Task Health & Priority Distribution">
+                <span class="project-media-hint">CLICK TO ENLARGE</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02: E-Temp IoT Telemetry -->
+          <article class="project-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <span class="blueprint-corner bl" aria-hidden="true"></span>
+            <span class="blueprint-corner br" aria-hidden="true"></span>
+            <div class="project-layout reversed">
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-role-badge"><span class="project-role-badge-icon"></span>SYS ANALYST &amp; IT BA</span>
+                    <span class="mono-date">SEP – DEC 2025 // SURABAYA</span>
+                  </div>
+                  <h3 class="project-title">E-Temp Industrial Cold-Chain Monitoring System</h3>
+                  <p class="project-outcome">
+                    Replaced manual clipboards with automated sensor telemetry across 12 cold-storage machines with 90-day predictive analytics — backed by complete BRD, FSD specifications, and a rigorous Excel Web Test Case Workbook (02-Workbook-Test-Case).
+                  </p>
+
+                  <!-- Interactive Data-Shard System -->
+                  <div class="project-shards-wrapper">
+                    <div class="shard-selector-rail">
+                      <button class="shard-slot-btn active" data-shard-role="sa" data-shard-title="SYSTEM ANALYST"
+                        data-shard-content="Designed the application architecture (Laravel, PHP, MySQL, Python-based API) from FSD specifications and coordinated with the technical team on functional modules (temperature monitoring, excursion anomaly detection, preventive maintenance). Designed relational time-series tables and REST API data contracts.">
+                        [⚡ SHARD: SYS_ARCH]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="ba" data-shard-title="IT BUSINESS ANALYST"
+                        data-shard-content="Authored the formal Business Requirements Document (BRD) and Functional Specification Document (FSD). Led multi-branch requirement elicitation for cold-storage compliance, managed scope in Trello, and documented User Stories with Acceptance Criteria. Used VLOOKUP and Pivot Tables in Excel to consolidate sensor data into monthly comparative visualizations and designed the system's master data export template.">
+                        [⚡ SHARD: IT_BA]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="si" data-shard-title="QA &amp; IMPLEMENTOR"
+                        data-shard-content="Engineered and executed the full web quality assurance suite in '02-Workbook-Test-Case' (Excel): developed functional test scenarios, positive/negative test cases, boundary condition checks, precondition/postcondition matrices, and defect severity tracking. Supervised pilot deployment across Surabaya branch machines, logged bug tickets, performed regression passes, and validated features against Acceptance Criteria for formal stakeholder sign-off.">
+                        [⚡ SHARD: IMPLEMENTOR]
+                      </button>
+                    </div>
+
+                    <div class="shard-readout-terminal">
+                      <div class="shard-terminal-header">
+                        <span class="shard-terminal-title">[DECRYPTED: SYSTEM ANALYST]</span>
+                        <span>STATUS: ACTIVE_READOUT</span>
+                      </div>
+                      <div class="shard-terminal-text">
+                        Designed the application architecture (Laravel, PHP, MySQL, Python-based API) from FSD specifications and coordinated with the technical team on functional modules (temperature monitoring, excursion anomaly detection, preventive maintenance). Designed relational time-series tables and REST API data contracts.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-role-box">
+                    <strong>DEPLOYMENT:</strong> Requirement Analyst (Academic Project) • CV. Dimas Djaya Teknik.
+                  </div>
+                </div>
+
+                <div>
+                  <div class="project-tags">
+                    <span class="tag-pill">BRD (Business Requirements)</span>
+                    <span class="tag-pill">FSD Specifications</span>
+                    <span class="tag-pill">Excel QA (02-Workbook-Test-Case)</span>
+                    <span class="tag-pill">Systems Architecture</span>
+                    <span class="tag-pill">Python API &amp; Laravel</span>
+                    <span class="tag-pill">VLOOKUP &amp; Pivot Tables</span>
+                    <span class="tag-pill">Acceptance Criteria</span>
+                    <span class="tag-pill">Chart.js Analytics</span>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center;">
+                    <a href="https://drive.google.com/drive/folders/1yJeAjFuiJ__W35Yup2n8pDP-jdXFUZht?usp=sharing"
+                      target="_blank" rel="noopener noreferrer" class="btn btn-cyan btn-sm"
+                      title="Open Google Drive folder containing BRD, FSD, and Excel Test Case Workbook">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      VIEW ARTIFACTS [BRD, FSD &amp; QA] &nearr;
+                    </a>
+                    <button class="btn btn-secondary btn-sm" data-lightbox="assets/images/etemp-dashboard.png"
+                      data-title="E-Temp Dashboard — Industrial Machine Telemetry & 90-Day Temperature Curves">
+                      ENLARGE_FEED [IMG]
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-media">
+                <img src="assets/images/etemp-dashboard.png"
+                  alt="E-Temp Industrial Telemetry Dashboard showing machine status and 90-day temperature curves"
+                  loading="lazy" data-lightbox="assets/images/etemp-dashboard.png"
+                  data-title="E-Temp Industrial Cold-Chain Monitoring Dashboard">
+                <span class="project-media-hint">CLICK TO ENLARGE</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03: Big Data Pipeline -->
+          <article class="project-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <span class="blueprint-corner bl" aria-hidden="true"></span>
+            <span class="blueprint-corner br" aria-hidden="true"></span>
+            <div class="project-layout">
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-role-badge"><span class="project-role-badge-icon"></span>DATA ARCHITECT &amp; BA</span>
+                    <span class="mono-date">2026 // BIG DATA CAPSTONE</span>
+                  </div>
+                  <h3 class="project-title">Enterprise E-Commerce Big Data Lakehouse &amp; Analytics</h3>
+                  <p class="project-outcome">
+                    Processed 1.5M+ rows from 9 datasets into a 3-layer medallion warehouse and 7-chart Superset dashboard analyzing R$20.4M in revenue.
+                  </p>
+
+                  <!-- Interactive Data-Shard System -->
+                  <div class="project-shards-wrapper">
+                    <div class="shard-selector-rail">
+                      <button class="shard-slot-btn active" data-shard-role="sa" data-shard-title="DATA ARCHITECT (SA)"
+                        data-shard-content="Built a 5-layer data architecture processing 1.5M+ rows from 9 datasets, with ETL/ELT ingestion (Hadoop HDFS) into a 3-layer data warehouse (Raw, Staging, Cleaned) and simulated real-time streaming ingestion with Apache Kafka. Joined 6 source tables into 118,107 unified fact records.">
+                        [⚡ SHARD: DATA_ARCH]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="ba" data-shard-title="BUSINESS INTELLIGENCE (BA)"
+                        data-shard-content="Ran descriptive analytics in Spark SQL and built an Apache Superset dashboard with 7 visualizations summarizing R$20.4M in revenue, 118k+ orders, payment methods (73.7% credit card), and delivery turnaround vs customer review scores.">
+                        [⚡ SHARD: BI_ANALYST]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="sa" data-shard-title="MACHINE LEARNING (SA)"
+                        data-shard-content="Trained a Spark MLlib Random Forest regression model to predict customer satisfaction review scores from freight value and shipping delay factors.">
+                        [⚡ SHARD: ML_PREDICT]
+                      </button>
+                    </div>
+
+                    <div class="shard-readout-terminal">
+                      <div class="shard-terminal-header">
+                        <span class="shard-terminal-title">[DECRYPTED: DATA ARCHITECT (SA)]</span>
+                        <span>STATUS: ACTIVE_READOUT</span>
+                      </div>
+                      <div class="shard-terminal-text">
+                        Built a 5-layer data architecture processing 1.5M+ rows from 9 datasets, with ETL/ELT ingestion (Hadoop HDFS) into a 3-layer data warehouse (Raw, Staging, Cleaned) and simulated real-time streaming ingestion with Apache Kafka. Joined 6 source tables into 118,107 unified fact records.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-role-box">
+                    <strong>DEPLOYMENT:</strong> Big Data Engineering &amp; Analytics Project • Telkom University.
+                  </div>
+                </div>
+
+                <div>
+                  <div class="project-tags">
+                    <span class="tag-pill">Hadoop HDFS</span>
+                    <span class="tag-pill">Apache Spark (PySpark)</span>
+                    <span class="tag-pill">Apache Kafka</span>
+                    <span class="tag-pill">Spark SQL</span>
+                    <span class="tag-pill">Apache Superset</span>
+                    <span class="tag-pill">Spark MLlib</span>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" data-lightbox="assets/images/olist-superset-overview.png"
+                    data-title="Apache Superset Dashboard — R$20.4M Revenue Analysis & 118k Orders Breakdown">
+                    ENLARGE_FEED [IMG]
+                  </button>
+                </div>
+              </div>
+
+              <div class="project-media">
+                <img src="assets/images/olist-superset-overview.png"
+                  alt="Apache Superset Executive Dashboard summarizing R$20.4M revenue, payment methods, and monthly order trends"
+                  loading="lazy" data-lightbox="assets/images/olist-superset-overview.png"
+                  data-title="Apache Superset Executive Dashboard — KPI & Payment Analytics">
+                <span class="project-media-hint">CLICK TO ENLARGE</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04: Odoo ERP Implementation -->
+          <article class="project-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <span class="blueprint-corner bl" aria-hidden="true"></span>
+            <span class="blueprint-corner br" aria-hidden="true"></span>
+            <div class="project-layout reversed">
+              <div class="project-content">
+                <div>
+                  <div class="project-meta-top">
+                    <span class="project-role-badge"><span class="project-role-badge-icon"></span>ERP IMPLEMENTOR &amp; BA</span>
+                    <span class="mono-date">SEP – DEC 2022 // SURABAYA</span>
+                  </div>
+                  <h3 class="project-title">Odoo ERP Multi-Module Implementation — Nuhsantara Merchandise</h3>
+                  <p class="project-outcome">
+                    Implemented Odoo ERP with a 3-member team, configuring 3 modules (Web, Inventory, Purchase) to match partner workflows.
+                  </p>
+
+                  <!-- Interactive Data-Shard System -->
+                  <div class="project-shards-wrapper">
+                    <div class="shard-selector-rail">
+                      <button class="shard-slot-btn active" data-shard-role="si" data-shard-title="SYSTEM IMPLEMENTOR"
+                        data-shard-content="Configured Odoo ERP modules (Website/E-Commerce, Purchasing, Inventory Management), migrated master data (SKU catalog, vendor lists, opening stock balances), configured automated replenishment rules, and delivered end-user training.">
+                        [⚡ SHARD: IMPLEMENTOR]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="ba" data-shard-title="IT BUSINESS ANALYST"
+                        data-shard-content="Mapped As-Is retail procurement and inventory turnover workflows, executed fit-gap analysis against standard ERP capabilities, and designed streamlined To-Be purchasing requisition flows.">
+                        [⚡ SHARD: IT_BA]
+                      </button>
+                      <button class="shard-slot-btn" data-shard-role="pm" data-shard-title="PROJECT COORDINATOR"
+                        data-shard-content="Coordinated deployment milestones across a 3-member team, facilitated User Acceptance Testing (UAT) sessions with store leadership, and delivered operational SOP manuals.">
+                        [⚡ SHARD: IT_PM]
+                      </button>
+                    </div>
+
+                    <div class="shard-readout-terminal">
+                      <div class="shard-terminal-header">
+                        <span class="shard-terminal-title">[DECRYPTED: SYSTEM IMPLEMENTOR]</span>
+                        <span>STATUS: ACTIVE_READOUT</span>
+                      </div>
+                      <div class="shard-terminal-text">
+                        Configured Odoo ERP modules (Website/E-Commerce, Purchasing, Inventory Management), migrated master data (SKU catalog, vendor lists, opening stock balances), configured automated replenishment rules, and delivered end-user training.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="project-role-box">
+                    <strong>DEPLOYMENT:</strong> ERP Implementation Team Member (Course Project) • Nuhsantara Merchandise.
+                  </div>
+                </div>
+
+                <div>
+                  <div class="project-tags">
+                    <span class="tag-pill">Odoo ERP</span>
+                    <span class="tag-pill">Purchasing &amp; Inventory</span>
+                    <span class="tag-pill">Master Data Migration</span>
+                    <span class="tag-pill">BPMN Workflows</span>
+                    <span class="tag-pill">UAT Scenarios</span>
+                    <span class="tag-pill">SOP Documentation</span>
+                  </div>
+                  <a href="assets/Alief_Sukma_Dewanta_Portfolio.pptx" download="Alief_Sukma_Dewanta_Portfolio.pptx"
+                    class="btn btn-secondary btn-sm">
+                    DOWNLOAD DECK [PPTX]
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-media">
+                <img src="assets/images/olist-tools-stack.png"
+                  alt="Enterprise Architecture and Tooling Stack for Systems Projects" loading="lazy"
+                  data-lightbox="assets/images/olist-tools-stack.png"
+                  data-title="Containerized Infrastructure and Multi-Service Systems Architecture">
+                <span class="project-media-hint">CLICK TO ENLARGE</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Additional Specialized Projects Grid -->
+        <div class="specialized-grid">
+          <!-- Specialized 1: COBIT 2019 Research -->
+          <div class="specialized-card spotlight-card" data-role="sa">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="project-meta-top">
+                <span class="project-role-badge"><span class="project-role-badge-icon"></span>IT GOVERNANCE</span>
+                <span class="mono-date">2024 // 4-MEMBER TEAM</span>
+              </div>
+              <h4>IT Governance Analysis (COBIT 2019) — PT Infoglobal</h4>
+              <p>
+                Co-authored research applying COBIT 2019 to analyze IT governance at PT Infoglobal Teknologi Semesta, evaluating 10 design factors and prioritizing EDM03, APO12, DSS05, DSS04, MEA03 governance objectives.
+              </p>
+            </div>
+            <div class="project-tags" style="margin-bottom: 0;">
+              <span class="tag-pill">COBIT 2019</span>
+              <span class="tag-pill">Risk &amp; Compliance</span>
+              <span class="tag-pill">Governance Audit</span>
+            </div>
+          </div>
+
+          <!-- Specialized 2: TOGAF EA Infoglobal -->
+          <div class="specialized-card spotlight-card" data-role="sa">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="project-meta-top">
+                <span class="project-role-badge"><span class="project-role-badge-icon"></span>ENTERPRISE ARCHITECTURE</span>
+                <span class="mono-date">2024 // ACADEMIC</span>
+              </div>
+              <h4>Enterprise Architecture Design — Infoglobal IT Division</h4>
+              <p>
+                Developed a TOGAF-based enterprise architecture blueprint for the IT division of Infoglobal, modeled in Visual Paradigm across Business, Data, Application, and Technology domains.
+              </p>
+            </div>
+            <div class="project-tags" style="margin-bottom: 0;">
+              <span class="tag-pill">TOGAF ADM 9.2</span>
+              <span class="tag-pill">Visual Paradigm</span>
+              <span class="tag-pill">IT Blueprint</span>
+            </div>
+          </div>
+
+          <!-- Specialized 3: Power BI Sales Dashboard -->
+          <div class="specialized-card spotlight-card" data-role="ba">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="project-meta-top">
+                <span class="project-role-badge"><span class="project-role-badge-icon"></span>BUSINESS ANALYST</span>
+                <span class="mono-date">2025 // TELKOM UNIV</span>
+              </div>
+              <h4>Sales Performance Intelligence Dashboard — PT Gelatik</h4>
+              <p>
+                Built an interactive Power BI dashboard for confectionery manufacturer PT Gelatik to analyze regional sales trends, buying patterns, and product velocity performance.
+              </p>
+            </div>
+            <div class="project-tags" style="margin-bottom: 0;">
+              <span class="tag-pill">Power BI</span>
+              <span class="tag-pill">Sales Trends</span>
+              <span class="tag-pill">Data Modeling</span>
+            </div>
+          </div>
+
+          <!-- Specialized 4: Google Cloud Gen AI MCP -->
+          <div class="specialized-card spotlight-card" data-role="sa">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="project-meta-top">
+                <span class="project-role-badge"><span class="project-role-badge-icon"></span>AI ARCHITECTURE</span>
+                <span class="mono-date">APR – MAY 2026 // APAC</span>
+              </div>
+              <h4>AI Chatbot with Model Context Protocol (MCP) Integration</h4>
+              <p>
+                Built an AI-powered chatbot integrated with MCP as a graded capstone project during the Google Cloud Gen AI Academy APAC, applying Generative AI and cloud infrastructure concepts.
+              </p>
+            </div>
+            <div class="project-tags" style="margin-bottom: 0;">
+              <span class="tag-pill">Google Cloud</span>
+              <span class="tag-pill">Model Context Protocol</span>
+              <span class="tag-pill">Gen AI</span>
+            </div>
+          </div>
+
+          <!-- Specialized 5: Thesis Stock Prediction -->
+          <div class="specialized-card spotlight-card" data-role="sa">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="project-meta-top">
+                <span class="project-role-badge"><span class="project-role-badge-icon"></span>UNDERGRADUATE THESIS</span>
+                <span class="mono-date">2026 // GRADE A</span>
+              </div>
+              <h4>Stock Price Prediction Web App (ARIMA-GARCH) — PGEO</h4>
+              <p>
+                Built a web-based forecasting system for PT Pertamina Geothermal Energy (PGEO), an IDX-listed company, using Python (pandas, statsmodels, arch, pmdarima), Streamlit, and HTML/CSS. Applied ARIMA-GARCH to model stock return volatility.
+              </p>
+            </div>
+            <div class="project-tags" style="margin-bottom: 0;">
+              <span class="tag-pill">Python / Streamlit</span>
+              <span class="tag-pill">ARIMA-GARCH</span>
+              <span class="tag-pill">Time-Series</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. EXPERIENCE SECTION (TACTICAL TIMELINE)
+         ========================================================================= -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Track Record</span>
+          <h2 class="section-title">Professional &amp; leadership experience</h2>
+          <p class="section-description">
+            A proven record spanning project coordination, systems analysis, academic lab mentoring, and student parliamentary leadership.
+          </p>
+        </div>
+
+        <div class="timeline-list">
+          <!-- Role 1: Netafarm -->
+          <div class="timeline-item">
+            <div class="timeline-date">JUN – AUG 2025</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Project Coordinator (Internship)</h3>
+              <div class="timeline-org">CV. Netafarm Indolestari • Sidoarjo, East Java</div>
+              <ul class="timeline-bullets">
+                <li>Authored the formal Business Requirements Document (BRD) and Functional Specification Document (FSD / FRD), translating stakeholder needs across 4 divisions into functional scope, User Stories, Acceptance Criteria, and UAT test scenarios.</li>
+                <li>Coordinated a 3-person developer team over an 8-week Waterfall cycle in Jira to deliver a Laravel-based project management system (OKR Tracking, Kanban Board, Role-Based Access Control).</li>
+                <li>Conducted black-box and white-box testing, logged and tracked defects, and performed regression testing before sign-off.</li>
+                <li>Analyzed user survey data and project timeline/completion-rate data in Excel (IF, VLOOKUP) to support requirements validation and progress tracking.</li>
+                <li>Presented progress and results to stakeholders and obtained sign-off/approval before deployment; received an official company certificate of appreciation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 2: Dimas Djaya Teknik -->
+          <div class="timeline-item">
+            <div class="timeline-date">SEP – DEC 2025</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Requirement Analyst (Academic Project)</h3>
+              <div class="timeline-org">CV. Dimas Djaya Teknik • Surabaya, East Java</div>
+              <ul class="timeline-bullets">
+                <li>Authored the Business Requirements Document (BRD) and Functional Specification Document (FSD) for a multi-branch cold storage temperature monitoring system, managing scope and tasks in Trello.</li>
+                <li>Engineered the comprehensive web QA test suite documented in '02-Workbook-Test-Case' (Excel), executing positive/negative test scenarios, regression testing, boundary condition checks, and defect tracking.</li>
+                <li>Designed the application architecture (Laravel, PHP, MySQL, Python-based API) and coordinated with the technical team on functional modules (temperature monitoring, anomaly detection, preventive maintenance).</li>
+                <li>Used VLOOKUP and Pivot Tables in Excel to consolidate temperature data across branches into comparative monthly, per-machine, and per-branch visualizations, and built the master data template for the system's Excel export feature.</li>
+                <li>Validated delivered features against Acceptance Criteria and obtained formal stakeholder sign-off.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 3: EA Lab Assistant -->
+          <div class="timeline-item">
+            <div class="timeline-date">SEP 2024 – DEC 2025</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Laboratory Assistant, Enterprise Architecture</h3>
+              <div class="timeline-org">Telkom University Surabaya • (Two Semester Appointments)</div>
+              <ul class="timeline-bullets">
+                <li>Developed course modules and graded case-study assignments applying the TOGAF framework.</li>
+                <li>Monitored and mentored student groups building TOGAF-based enterprise architectures in Visual Paradigm for organizations with 50+ employees.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 4: ERP Nuhsantara -->
+          <div class="timeline-item">
+            <div class="timeline-date">SEP – DEC 2022</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">ERP Implementation Team Member (Course Project)</h3>
+              <div class="timeline-org">Nuhsantara Merchandise • Surabaya, East Java</div>
+              <ul class="timeline-bullets">
+                <li>Implemented Odoo ERP with a 3-member team, configuring 3 modules (Web, Inventory, Purchase) to match the partner's inventory and procurement workflows.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 5: Chairperson DPM -->
+          <div class="timeline-item">
+            <div class="timeline-date">FEB 2025 – JAN 2026</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Chairperson, Student Legislative Council (DPM)</h3>
+              <div class="timeline-org">Telkom University Surabaya • 40+ Members</div>
+              <ul class="timeline-bullets">
+                <li>Led organizational governance and coordinated internal and external communication across the student government body.</li>
+                <li>Managed information flow and documentation practices to improve transparency and accessibility across divisions.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 6: Media Commission DPM -->
+          <div class="timeline-item">
+            <div class="timeline-date">FEB 2024 – JAN 2025</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Media &amp; Information Commission Member</h3>
+              <div class="timeline-org">Student Legislative Council (DPM) • Telkom University Surabaya</div>
+              <ul class="timeline-bullets">
+                <li>Coordinated cross-divisional communication and publication workflows within the student government organization.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 7: CODER VP UI/UX -->
+          <div class="timeline-item">
+            <div class="timeline-date">AUG 2023 – AUG 2024</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Vice Head, UI/UX Division</h3>
+              <div class="timeline-org">CODER (Student Tech Organization) • Telkom University Surabaya</div>
+              <ul class="timeline-bullets">
+                <li>Led UI/UX division activities, organized workshops, and mentored junior members in design tools including Figma.</li>
+                <li>Collaborated on cross-functional technology projects while maintaining design consistency and usability standards.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 8: Keynote Speaker -->
+          <div class="timeline-item">
+            <div class="timeline-date">DEC 2025</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Keynote Speaker &amp; Event Coordinator</h3>
+              <div class="timeline-org">DevOps x System Analyst: Modern IT Careers (Virtual Seminar)</div>
+              <ul class="timeline-bullets">
+                <li>Coordinated a virtual IT career seminar end-to-end and delivered a keynote session on System Analysis to a mixed technical/non-technical audience.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 9: Master of Ceremony -->
+          <div class="timeline-item">
+            <div class="timeline-date">NOV 2023 – NOV 2024</div>
+            <div class="timeline-content-wrap">
+              <h3 class="timeline-role">Master of Ceremony</h3>
+              <div class="timeline-org">Telkom University Guest Lecture &amp; HMSI Welcome Party</div>
+              <ul class="timeline-bullets">
+                <li>Hosted a formal guest lecture on integrity and professional ethics, and the annual Information Systems Welcome Party for new students.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. PUBLICATIONS SECTION (DECLASSIFIED RESEARCH)
+         ========================================================================= -->
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Academic Publication</span>
+          <h2 class="section-title">Peer-reviewed research and architecture blueprints</h2>
+          <p class="section-description">
+            Scholarly work applying enterprise architecture frameworks to municipal governance and digital transformation.
+          </p>
+        </div>
+
+        <div class="pub-card spotlight-card">
+          <span class="blueprint-corner tl" aria-hidden="true"></span>
+          <span class="blueprint-corner tr" aria-hidden="true"></span>
+          <div class="pub-badge-row">
+            <span class="pub-pill">JURNAL MASYARAKAT MANDIRI (JMM)</span>
+            <span class="mono-date">2024 // SINTA 2 ACCREDITED // VOL. 8 NO. 6</span>
+          </div>
+
+          <h3 class="pub-title">
+            Designing an IT Blueprint as a Strategy for Developing the Smart Village Concept
+          </h3>
+          <div class="pub-original-title">
+            [ORIGINAL: Perancangan IT Blueprint Sebagai Strategi Pengembangan Konsep Smart Village]
+          </div>
+
+          <p class="pub-summary">
+            Applied the <strong>TOGAF ADM 9.2 framework</strong> to develop an IT Blueprint and Smart Village roadmap for Panjunan Village, Gresik. The blueprint aligned village administrative processes with Sustainable Development Goals (SDGs) and was validated through stakeholder engagement surveys and community field analysis.
+          </p>
+
+          <div class="pub-metrics-grid">
+            <div class="pub-metric-item">
+              <span class="pub-metric-num">TOGAF 9.2</span>
+              <span class="pub-metric-desc">Architectural Framework</span>
+            </div>
+            <div class="pub-metric-item">
+              <span class="pub-metric-num">SINTA 2</span>
+              <span class="pub-metric-desc">National Accreditation</span>
+            </div>
+            <div class="pub-metric-item">
+              <span class="pub-metric-num">SDGs</span>
+              <span class="pub-metric-desc">Strategic Alignment</span>
+            </div>
+            <div class="pub-metric-item">
+              <span class="pub-metric-num">73%+</span>
+              <span class="pub-metric-desc">Community Validation</span>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <a href="https://doi.org/10.31764/jmm.v8i6.29063" target="_blank" rel="noopener noreferrer"
+              class="btn btn-secondary btn-sm">
+              VIEW JOURNAL ARTICLE (DOI) &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SKILLS SECTION (7-CLUSTER NEURAL MATRIX)
+         ========================================================================= -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Capabilities</span>
+          <h2 class="section-title">Core competencies &amp; technical toolset</h2>
+          <p class="section-description">
+            Exact skill matrix categorized across requirements analysis, quality assurance, architecture, data, and delivery.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Cluster 1: Requirements & Business Analysis -->
+          <div class="skills-column spotlight-card">
+            <h4>Requirements &amp; Business Analysis</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">Requirements Gathering</span>
+              <span class="skill-tag">User Stories</span>
+              <span class="skill-tag">Acceptance Criteria</span>
+              <span class="skill-tag">Business Process Analysis</span>
+              <span class="skill-tag">Functional &amp; Technical Design</span>
+              <span class="skill-tag">Stakeholder Management</span>
+            </div>
+          </div>
+
+          <!-- Cluster 2: UAT & Quality Assurance -->
+          <div class="skills-column spotlight-card">
+            <h4>UAT &amp; Quality Assurance</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">UAT Scenario Design</span>
+              <span class="skill-tag">Black-box Testing</span>
+              <span class="skill-tag">White-box Testing</span>
+              <span class="skill-tag">Regression Testing</span>
+              <span class="skill-tag">Defect Tracking &amp; Reporting</span>
+              <span class="skill-tag">Test Documentation</span>
+            </div>
+          </div>
+
+          <!-- Cluster 3: Enterprise Architecture & Governance -->
+          <div class="skills-column spotlight-card">
+            <h4>Enterprise Architecture &amp; Governance</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">TOGAF ADM 9.2 (Business/Data/App/Tech)</span>
+              <span class="skill-tag">Visual Paradigm</span>
+              <span class="skill-tag">COBIT 2019 IT Governance</span>
+              <span class="skill-tag">IT Risk &amp; Compliance Assessment</span>
+              <span class="skill-tag">IT Strategic Planning</span>
+            </div>
+          </div>
+
+          <!-- Cluster 4: Data & Analytics -->
+          <div class="skills-column spotlight-card">
+            <h4>Data &amp; Analytics</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">Python (pandas, statsmodels, arch, pmdarima)</span>
+              <span class="skill-tag">SQL &amp; MySQL</span>
+              <span class="skill-tag">Streamlit</span>
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Apache Superset</span>
+              <span class="skill-tag">ETL / ELT</span>
+              <span class="skill-tag">Data Warehouse</span>
+              <span class="skill-tag">Hadoop HDFS</span>
+              <span class="skill-tag">Apache Kafka</span>
+              <span class="skill-tag">Spark SQL</span>
+              <span class="skill-tag">Time-Series Forecasting</span>
+            </div>
+          </div>
+
+          <!-- Cluster 5: Project & Delivery -->
+          <div class="skills-column spotlight-card">
+            <h4>Project &amp; Delivery</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">SDLC (Waterfall &amp; Agile Principles)</span>
+              <span class="skill-tag">Project Coordination</span>
+              <span class="skill-tag">Scope &amp; Timeline Management</span>
+              <span class="skill-tag">Jira</span>
+              <span class="skill-tag">Trello</span>
+              <span class="skill-tag">GitHub</span>
+            </div>
+          </div>
+
+          <!-- Cluster 6: Tools -->
+          <div class="skills-column spotlight-card">
+            <h4>Software Tools</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">Microsoft Excel (IF, VLOOKUP, Pivot Tables)</span>
+              <span class="skill-tag">Microsoft Word &amp; PowerPoint</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Odoo ERP</span>
+              <span class="skill-tag">Google Cloud</span>
+            </div>
+          </div>
+
+          <!-- Cluster 7: Soft Skills -->
+          <div class="skills-column spotlight-card">
+            <h4>Soft Skills</h4>
+            <div class="skills-pills-list">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Communication &amp; Presentation</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Analytical Thinking</span>
+              <span class="skill-tag">Attention to Detail</span>
+              <span class="skill-tag">Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. CERTIFICATIONS SECTION (VERIFIED CREDENTIALS)
+         ========================================================================= -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Credentials</span>
+          <h2 class="section-title">Verified professional certifications</h2>
+          <p class="section-description">
+            Industry credentials validating competencies in project governance, systems analysis, and enterprise resource planning.
+          </p>
+        </div>
+
+        <div class="certs-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">GOOGLE CAREER CERTIFICATES</div>
+              <h3 class="cert-title">Google Project Management Professional Certificate</h3>
+              <p>SDLC, Agile, Scrum, WBS, risk mitigation, and stakeholder management.</p>
+            </div>
+            <div class="cert-meta">
+              <span>VERIFIED CREDENTIAL</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">IBM / COURSERA</div>
+              <h3 class="cert-title">IBM Systems Analyst Professional Certificate</h3>
+              <p>System analysis & design, functional specifications, UML/ERD modeling, and testing.</p>
+            </div>
+            <div class="cert-meta">
+              <span>VERIFIED CREDENTIAL</span>
+              <span>2025</span>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">GOOGLE CLOUD X HACK2SKILL</div>
+              <h3 class="cert-title">Google Cloud Gen AI Academy APAC</h3>
+              <p>Generative AI infrastructure, Model Context Protocol (MCP), and enterprise agent design.</p>
+            </div>
+            <div class="cert-meta">
+              <span>COHORT 1 GRADUATE</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">SAP UNIVERSITY ALLIANCES</div>
+              <h3 class="cert-title">SAP Certified: SCM500 — Procurement</h3>
+              <p>Business processes in procurement, purchasing master data, and inventory optimization.</p>
+            </div>
+            <div class="cert-meta">
+              <span>SAP CERTIFIED</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 5 -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">SAP UNIVERSITY ALLIANCES</div>
+              <h3 class="cert-title">SAP Certified: HR050 — Human Capital</h3>
+              <p>Business processes in Human Capital Management, personnel administration, and org management.</p>
+            </div>
+            <div class="cert-meta">
+              <span>SAP CERTIFIED</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 6: English Language -->
+          <div class="cert-card spotlight-card">
+            <div>
+              <div class="cert-issuer">EF STANDARD ENGLISH TEST</div>
+              <h3 class="cert-title">EF SET English Certificate — C2 Advanced</h3>
+              <p>Score 77/100 (C2 Advanced on CEFR scale); EPrT 557 (B2 CEFR).</p>
+            </div>
+            <div class="cert-meta">
+              <span>C2 ADVANCED</span>
+              <span>VERIFIED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. EDUCATION SECTION (ACADEMIC FOUNDATION)
+         ========================================================================= -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Academic Pedigree</span>
+          <h2 class="section-title">Education &amp; international study</h2>
+          <p class="section-description">
+            Rigorous foundation in Management Information Systems complemented by global business coursework.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <!-- Institution 1: Telkom University -->
+          <div class="edu-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="mono-date">2022 – 2026 • GRADUATED OCT 2026 (CONVOCATION: OCT 26, 2026)</div>
+              <h3 class="edu-institution">Telkom University Surabaya</h3>
+              <div class="edu-degree">B.S. Management Information Systems</div>
+              <p>
+                Graduated with High Honors. Relevant coursework: Enterprise Architecture, IT/IS Governance, IT/IS Strategic Management, Information Systems Security, Data Warehouse &amp; Business Intelligence, Big Data Management, Business Process Management, System Analysis &amp; Design, System Testing &amp; Implementation, Project Management for Information Systems.
+              </p>
+            </div>
+            <ul class="edu-details">
+              <li><strong>Cumulative GPA:</strong> 3.66 / 4.00 (High Honors / Cum Laude)</li>
+              <li><strong>Thesis (Grade A):</strong> Stock Price Prediction for PT Pertamina Geothermal Energy (PGEO) Using ARIMA-GARCH, Implemented as a Web-Based System.</li>
+              <li><strong>Governance:</strong> Chairperson, Student Legislative Council (DPM Telkom University).</li>
+            </ul>
+          </div>
+
+          <!-- Institution 2: Hanyang University -->
+          <div class="edu-card spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <div>
+              <div class="mono-date">DEC 2025 – FEB 2026 • SEOUL, SOUTH KOREA</div>
+              <h3 class="edu-institution">Hanyang University</h3>
+              <div class="edu-degree">Winter School / Pre-Exchange Program</div>
+              <p>
+                Completed intensive international coursework in Business, Management, Marketing, and Related Support Services at one of South Korea's premier private research institutions.
+              </p>
+            </div>
+            <ul class="edu-details">
+              <li><strong>Academic Standing:</strong> Perfect 4.50 / 4.50 GPA (Grade A+, A+).</li>
+              <li><strong>Domain:</strong> Global Business Management, Strategic Decision Making, Marketing Support Services.</li>
+              <li><strong>Environment:</strong> Cross-cultural team projects and multinational case presentations.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. CONTACT SECTION (ENCRYPTED COMM FREQUENCIES)
+         ========================================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Transmission Node</span>
+          <h2 class="section-title">Initiate communication protocol</h2>
+          <p class="section-description">
+            Available for full-time Project Manager, Business Analyst, and Systems Analyst roles in Surabaya, Indonesia or remote. Open to relocation.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Direct Channels -->
+          <div class="contact-channels-panel">
+            <p style="margin-bottom: 1.5rem;">
+              Whether you need someone to run sprint ceremonies, untangle complicated stakeholder requirements, build architectural blueprints, or deploy ERP modules—initiate transmission directly.
+            </p>
+
+            <div class="contact-channels">
+              <a href="mailto:aliefsd84@gmail.com" class="contact-card">
+                <div class="contact-card-info">
+                  <h4>ENCRYPTED EMAIL</h4>
+                  <p>aliefsd84@gmail.com</p>
+                </div>
+                <span>&rarr;</span>
+              </a>
+
+              <a href="https://linkedin.com/in/aliefsd84" target="_blank" rel="noopener noreferrer"
+                class="contact-card">
+                <div class="contact-card-info">
+                  <h4>LINKEDIN PROFILE</h4>
+                  <p>linkedin.com/in/aliefsd84</p>
+                </div>
+                <span>&rarr;</span>
+              </a>
+
+              <a href="https://github.com/Yaboialip" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-card-info">
+                  <h4>GITHUB REPOSITORY</h4>
+                  <p>github.com/Yaboialip</p>
+                </div>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Tactical Contact Form -->
+          <div class="contact-form-panel spotlight-card">
+            <span class="blueprint-corner tl" aria-hidden="true"></span>
+            <span class="blueprint-corner tr" aria-hidden="true"></span>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="sender-name" class="form-label">[CALLSIGN / SENDER NAME]</label>
+                <input type="text" id="sender-name" class="form-input" required placeholder="Jane Doe">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-email" class="form-label">[REPLY FREQUENCY / EMAIL]</label>
+                <input type="email" id="sender-email" class="form-input" required placeholder="jane@company.com">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message" class="form-label">[TRANSMISSION PAYLOAD / MESSAGE]</label>
+                <textarea id="sender-message" class="form-textarea" required
+                  placeholder="Specify project scope, role requirements, or collaboration inquiry..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                TRANSMIT MESSAGE [SEND]
+              </button>
+
+              <div id="form-feedback" class="form-feedback"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-copy">
+        [SYS_COPYRIGHT // 2026] ALIEF SUKMA DEWANTA. ALL RIGHTS RESERVED.
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">TOP_OF_STACK &uarr;</a>
+        <a href="assets/Alief_Sukma_Dewanta_CV.pdf" download="Alief_Sukma_Dewanta_CV.pdf">DOWNLOAD_CV [PDF]</a>
+        <a href="assets/Alief_Sukma_Dewanta_Portfolio.pptx" download="Alief_Sukma_Dewanta_Portfolio.pptx">PORTFOLIO [PPTX]</a>
+        <a href="mailto:aliefsd84@gmail.com">aliefsd84@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       TERMINAL COMMAND MODAL (QUICKHACK INTERFACE)
+       ========================================================================= -->
+  <div class="terminal-modal-backdrop" id="terminal-modal" role="dialog" aria-modal="true" aria-labelledby="terminal-title">
+    <div class="terminal-window">
+      <div class="terminal-header-bar">
+        <div class="terminal-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span id="terminal-title">NIGHT_CITY_OS // TACTICAL CONSOLE v2.0.77</span>
+        </div>
+        <button class="terminal-close-btn" aria-label="Close terminal">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminal-output">
+        <div class="terminal-log-line cyan">[SYSTEM READY] Operator: Alief Sukma Dewanta // Node: Surabaya (WIB)</div>
+        <div class="terminal-log-line">Type 'help' for command directory, 'cv' to download latest PDF, or 'jump [section]' to navigate.</div>
+      </div>
+      <div class="terminal-input-row" style="padding: 0.75rem 1.25rem;">
+        <span class="terminal-prompt">user@alip:~$</span>
+        <input type="text" class="terminal-input" id="terminal-input" placeholder="type command (e.g. 'help', 'cv', 'jump projects')..." autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       LIGHTBOX MODAL FOR SCREENSHOTS
+       ========================================================================= -->
+  <div class="lightbox-backdrop" id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <h3 id="lightbox-title" class="lightbox-title">TELEMETRY_FEED</h3>
+        <button class="lightbox-close-btn" aria-label="Close image preview">&times;</button>
+      </div>
+      <div class="lightbox-body">
+        <img src="" alt="" id="lightbox-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
