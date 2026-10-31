@@ -310,11 +310,17 @@ function initTerminalDrawer() {
           case 'docs':
           case 'artifacts':
             resp.className = 'terminal-log-line cyan';
-            resp.innerHTML = `SPECIFICATION &amp; QA ARTIFACT ARCHIVES:<br>
+            resp.innerHTML = `VERIFIED SPECIFICATION &amp; ACADEMIC ARTIFACT ARCHIVES:<br>
               &bull; <strong>[NETAFARM OKR SYSTEM]</strong> BRD &amp; FSD Archive:<br>
                 <a href="https://drive.google.com/drive/folders/1Ym-B6uoR0V2FTENJeCdkSvyU6m_mF0q4?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../Netafarm-BRD-FSD</a><br><br>
-              &bull; <strong>[E-TEMP TELEMETRY SYSTEM]</strong> BRD, FSD &amp; 02-Workbook-Test-Case (Excel QA):<br>
-                <a href="https://drive.google.com/drive/folders/1yJeAjFuiJ__W35Yup2n8pDP-jdXFUZht?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../ETemp-BRD-FSD-QA</a>`;
+              &bull; <strong>[E-TEMP TELEMETRY SYSTEM]</strong> BRD, FSD &amp; Excel QA Workbook:<br>
+                <a href="https://drive.google.com/drive/folders/1yJeAjFuiJ__W35Yup2n8pDP-jdXFUZht?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../ETemp-BRD-FSD-QA</a><br><br>
+              &bull; <strong>[BIG DATA LAKEHOUSE]</strong> Presentation Deck (PPT):<br>
+                <a href="https://drive.google.com/file/d/1-_KjfIORiWMeEm45z8R80D6LOb4IdRg4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../BigData-Deck</a><br><br>
+              &bull; <strong>[UNDERGRADUATE THESIS]</strong> Full Skripsi PGEO ARIMA-GARCH:<br>
+                <a href="https://drive.google.com/file/d/1sFt-QrZIYCprjvEfZtW41hoVChWjGJXn/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../Skripsi-Thesis</a><br><br>
+              &bull; <strong>[JOURNAL PUBLICATION]</strong> ResearchGate PDF (Smart Village IT Blueprint):<br>
+                <a href="https://www.researchgate.net/publication/392726934_PERANCANGAN_IT_BLUEPRINT_SEBAGAI_STRATEGI_PENGEMBANGAN_KONSEP_SMART_VILLAGE" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">researchgate.net/.../392726934_IT_BLUEPRINT</a>`;
             break;
           case 'cv':
             resp.className = 'terminal-log-line cyan';

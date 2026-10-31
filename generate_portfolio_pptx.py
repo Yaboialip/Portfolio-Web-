@@ -611,13 +611,20 @@ def create_portfolio_deck():
         c5run.text = "TECH STACK & METRICS:\n"
         c5run.font.name = FONT_MONO
         c5run.font.bold = True
-        c5run.font.size = Pt(9)
+        c5run.font.size = Pt(8.5)
         c5run.font.color.rgb = COLOR_YELLOW
         c5run2 = c5p.add_run()
-        c5run2.text = "Hadoop HDFS, Apache Spark (PySpark), Apache Kafka, Spark MLlib, Apache Superset  |  1.5M+ Records  |  Telkom University"
+        c5run2.text = "Hadoop HDFS, PySpark, Kafka, MLlib, Superset  |  1.5M+ Rows\n"
         c5run2.font.name = FONT_BODY
-        c5run2.font.size = Pt(8.5)
+        c5run2.font.size = Pt(8)
         c5run2.font.color.rgb = COLOR_TEXT_SECONDARY
+
+        c5run3 = c5p.add_run()
+        c5run3.text = "📊 SLIDE DECK: https://drive.google.com/file/d/1-_KjfIORiWMeEm45z8R80D6LOb4IdRg4/view?usp=drive_link"
+        c5run3.font.name = FONT_MONO
+        c5run3.font.size = Pt(7.8)
+        c5run3.font.bold = True
+        c5run3.font.color.rgb = COLOR_CYAN
 
     # --------------------------------------------------------------------------
     # SLIDE 6: FEATURED PROJECT 04 — ODOO ERP IMPLEMENTATION
@@ -759,7 +766,7 @@ def create_portfolio_deck():
             "ARIMA-GARCH STOCK VOLATILITY PREDICTION",
             "PT Pertamina Geothermal Energy Tbk (PGEO)",
             COLOR_YELLOW,
-            "Undergraduate Thesis (Grade A, 2026): Python forecasting web app (Streamlit, arch, statsmodels) modeling PGEO return volatility on IDX.",
+            "Undergraduate Thesis (Grade A, 2026): Python forecasting web app (Streamlit, arch, statsmodels) modeling PGEO return volatility on IDX.\nManuscript (PDF): drive.google.com/file/d/1sFt-QrZIYCprjvEfZtW41hoVChWjGJXn",
             "Tags: Python • Econometrics • Streamlit • Thesis (Grade A)"
         ),
         (
@@ -882,12 +889,19 @@ def create_portfolio_deck():
         r_desc.font.color.rgb = COLOR_TEXT_PRIMARY
 
     doi_p = pubtf.add_paragraph()
-    doi_p.space_before = Pt(12)
-    doi_p.add_run().text = "🔗 DOI REFERENCE: https://doi.org/10.31764/jmm.v8i6.29744  |  INDEXED IN SINTA S2, GOOGLE SCHOLAR, GARUDA"
+    doi_p.space_before = Pt(10)
+    doi_p.add_run().text = "🔗 DOI REFERENCE: https://doi.org/10.31764/jmm.v8i6.29744  |  INDEXED IN SINTA S2, GOOGLE SCHOLAR, GARUDA\n"
     doi_p.runs[0].font.name = FONT_MONO
     doi_p.runs[0].font.size = Pt(8.5)
     doi_p.runs[0].font.bold = True
     doi_p.runs[0].font.color.rgb = COLOR_CYAN
+
+    rg_run = doi_p.add_run()
+    rg_run.text = "📄 RESEARCHGATE FULL-TEXT (PDF): https://www.researchgate.net/publication/392726934_PERANCANGAN_IT_BLUEPRINT_SEBAGAI_STRATEGI_PENGEMBANGAN_KONSEP_SMART_VILLAGE"
+    rg_run.font.name = FONT_MONO
+    rg_run.font.size = Pt(8.5)
+    rg_run.font.bold = True
+    rg_run.font.color.rgb = COLOR_YELLOW
 
     # --------------------------------------------------------------------------
     # SLIDE 9: CAREER TRACK & LEADERSHIP RECORD
@@ -1005,31 +1019,31 @@ def create_portfolio_deck():
             "GOOGLE PROJECT MANAGEMENT PROFESSIONAL",
             "Google (Coursera)  •  Issued 2026",
             COLOR_YELLOW,
-            "Mastered Agile & Scrum governance, Waterfall WBS planning, project charters, risk management registers, sprint estimation, and executive stakeholder communication across 6 comprehensive courses."
+            "Mastered Agile & Scrum governance, Waterfall WBS planning, project charters, risk management registers, sprint estimation, and executive stakeholder communication across 6 comprehensive courses.\nDrive: drive.google.com/file/d/1px_zULs9ktCtz4HS9y-mV5yoizBd3pu0"
         ),
         (
-            "IBM SYSTEMS ANALYST PROFESSIONAL CERTIFICATE",
-            "IBM (Coursera)  •  Issued 2026",
+            "GOOGLE AI ESSENTIALS & GCP GEN AI",
+            "Google Career Certs & Cloud Academy  •  2026",
             COLOR_CYAN,
-            "Specialized in requirements gathering, business process modeling, UML diagrams, relational database architecture, software architecture evaluation, and systems implementation."
+            "Certified in foundation AI prompt engineering, workplace AI productivity tooling, enterprise Generative AI APIs, and Model Context Protocol (MCP) multi-agent systems.\nDrive: drive.google.com/file/d/1w9exZvruwxxjmYWl_AabMteworOG7CKH"
         ),
         (
-            "SAP CERTIFIED: SCM500 (PROCUREMENT PROCESSES)",
-            "SAP SE  •  Issued 2024",
+            "SAP CERTIFIED: SCM500 (PROCUREMENT)",
+            "SAP SE  •  Issued 2026",
             COLOR_YELLOW,
-            "Formal certification in enterprise procurement flows, purchase requisition lifecycle, master vendor data management, inventory valuation, and goods receipt verification."
+            "Formal certification in enterprise procurement flows, purchase requisition lifecycle, master vendor data management, inventory valuation, and goods receipt verification.\nDrive: drive.google.com/file/d/1Jld8wiO7VhbPhoA1k-4gh8whQ5Q0zFCP"
         ),
         (
-            "SAP CERTIFIED: HR050 (BUSINESS PROCESSES IN HCM)",
-            "SAP SE  •  Issued 2025",
+            "SAP CERTIFIED: HR050 (HUMAN CAPITAL)",
+            "SAP SE  •  Issued 2026",
             COLOR_CYAN,
-            "Certified in SAP enterprise human capital management workflows, organizational structure design, employee lifecycle data administration, and corporate personnel reporting."
+            "Certified in SAP enterprise human capital management workflows, organizational structure design, employee lifecycle data administration, and corporate personnel reporting.\nDrive: drive.google.com/file/d/1rbG-AEVhXtDvmtQMFCuqIaCu8rKrhB2F"
         ),
         (
-            "GOOGLE CLOUD GEN AI ACADEMY APAC",
-            "Google Cloud  •  Issued 2026",
+            "EF SET ENGLISH: C2 ADVANCED",
+            "EF Standard English Test  •  Score 77/100 (C2)",
             COLOR_YELLOW,
-            "Trained in enterprise Generative AI implementation, foundation model prompting, cloud infrastructure concepts, and API integration using Model Context Protocol (MCP)."
+            "Demonstrated bilingual command of professional English at CEFR C2 Advanced standard; capable of cross-border executive alignment and international system documentation.\nDrive: drive.google.com/file/d/1ZR8rK2Md03JX2uoQHXl3r09yCc6Qydpe"
         ),
         (
             "BACHELOR OF SCIENCE IN INFORMATION SYSTEMS",
