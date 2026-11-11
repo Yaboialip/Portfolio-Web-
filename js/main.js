@@ -311,6 +311,8 @@ function initTerminalDrawer() {
           case 'artifacts':
             resp.className = 'terminal-log-line cyan';
             resp.innerHTML = `VERIFIED SPECIFICATION &amp; ACADEMIC ARTIFACT ARCHIVES:<br>
+              &bull; <strong>[O2C AUTOMATION CASE STUDY]</strong> Live KPI Dashboard &amp; Repository:<br>
+                <a href="https://yaboialip.github.io/o2c-automation-case-study/" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">yaboialip.github.io/o2c-automation-case-study</a> // <a href="https://github.com/Yaboialip/o2c-automation-case-study" target="_blank" rel="noopener noreferrer" style="color:var(--cp-cyan);text-decoration:underline;">GitHub Repo</a><br><br>
               &bull; <strong>[NETAFARM OKR SYSTEM]</strong> BRD &amp; FSD Archive:<br>
                 <a href="https://drive.google.com/drive/folders/1Ym-B6uoR0V2FTENJeCdkSvyU6m_mF0q4?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--cp-yellow);text-decoration:underline;">drive.google.com/.../Netafarm-BRD-FSD</a><br><br>
               &bull; <strong>[E-TEMP TELEMETRY SYSTEM]</strong> BRD, FSD &amp; Excel QA Workbook:<br>
