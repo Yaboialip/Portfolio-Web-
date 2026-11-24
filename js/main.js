@@ -181,8 +181,8 @@ function initDataShards() {
         const roleTitle = btn.getAttribute('data-shard-title') || 'SPEC_READOUT';
         const roleData = btn.getAttribute('data-shard-content') || '';
 
-        if (titleEl) titleEl.textContent = `[DECRYPTED: ${roleTitle}]`;
-        scrambleDecrypt(textEl, roleData, 400);
+        if (titleEl) titleEl.textContent = `${roleTitle} Deliverables`;
+        scrambleDecrypt(textEl, roleData, 300);
       });
     });
   });
@@ -300,7 +300,8 @@ function initTerminalDrawer() {
             resp.innerHTML = `Available commands:<br>
               &bull; <strong>jump [section]</strong> — jump to hero, about, projects, experience, skills, certs, contact<br>
               &bull; <strong>cv</strong> — download latest October 2026 CV (PDF)<br>
-              &bull; <strong>ppt / deck</strong> — download 12-slide executive portfolio presentation deck (PPTX)<br>
+              &bull; <strong>doc / docx</strong> — download comprehensive CV Word document (DOCX)<br>
+              &bull; <strong>ppt / deck</strong> — download 14-slide executive portfolio presentation deck (PPTX)<br>
               &bull; <strong>docs</strong> — view links to BRD, FSD, and Excel QA workbooks on Google Drive<br>
               &bull; <strong>lens [pm|ba|sa|si|all]</strong> — switch active role lens<br>
               &bull; <strong>status</strong> — view system diagnostics & Surabaya node info<br>
@@ -329,6 +330,12 @@ function initTerminalDrawer() {
             resp.textContent = 'INITIATING DOWNLOAD: assets/Alief_Sukma_Dewanta_CV.pdf...';
             window.location.href = 'assets/Alief_Sukma_Dewanta_CV.pdf';
             break;
+          case 'doc':
+          case 'docx':
+            resp.className = 'terminal-log-line cyan';
+            resp.textContent = 'INITIATING DOWNLOAD: assets/Alief_Sukma_Dewanta_CV_Comprehensive.docx...';
+            window.location.href = 'assets/Alief_Sukma_Dewanta_CV_Comprehensive.docx';
+            break;
           case 'ppt':
           case 'pptx':
           case 'deck':
@@ -352,7 +359,10 @@ function initTerminalDrawer() {
             return;
           default:
             if (cmd.startsWith('jump ')) {
-              const target = cmd.replace('jump ', '').trim();
+              let target = cmd.replace('jump ', '').trim();
+              if (target === 'vault' || target === 'specs' || target === 'ledger' || target === 'artifacts') {
+                target = 'artifacts-vault';
+              }
               const el = document.getElementById(target);
               if (el) {
                 close();
@@ -361,7 +371,7 @@ function initTerminalDrawer() {
               } else {
                 resp.className = 'terminal-log-line';
                 resp.style.color = 'var(--cp-red)';
-                resp.textContent = `TARGET NOT FOUND: #${target}. Try: hero, projects, experience, skills, contact`;
+                resp.textContent = `TARGET NOT FOUND: #${target}. Try: hero, projects, vault, experience, skills, certs, contact`;
               }
             } else if (cmd.startsWith('lens ')) {
               const lens = cmd.replace('lens ', '').trim();
@@ -466,27 +476,43 @@ function initContactForm() {
     const name = document.getElementById('sender-name')?.value.trim();
     const email = document.getElementById('sender-email')?.value.trim();
     const message = document.getElementById('sender-message')?.value.trim();
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     if (!name || !email || !message) {
       if (feedback) {
         feedback.className = 'form-feedback error';
-        feedback.textContent = '[ERR] ALL FIELDS REQUIRED FOR SECURE TRANSMISSION.';
+        feedback.textContent = 'Please fill in all fields before sending.';
       }
       return;
     }
 
-    const subject = encodeURIComponent(`[INQUIRY] Comm from ${name}`);
+    const originalContent = submitBtn ? submitBtn.innerHTML : 'Send Message';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+          <path d="M12 2a10 10 0 0 1 10 10"></path>
+        </svg> Transmitting...
+      `;
+    }
+
+    const subject = encodeURIComponent(`[Portfolio Inquiry] From ${name}`);
     const body = encodeURIComponent(`Hi Alief,\n\n${message}\n\nFrom: ${name} (${email})`);
     const mailtoUrl = `mailto:aliefsd84@gmail.com?subject=${subject}&body=${body}`;
 
     if (feedback) {
       feedback.className = 'form-feedback success';
-      feedback.textContent = '[SECURE] OPENING ENCRYPTED EMAIL CLIENT...';
+      feedback.textContent = 'Opening your email client to send message...';
     }
 
     setTimeout(() => {
       window.location.href = mailtoUrl;
-    }, 400);
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalContent;
+      }
+    }, 600);
   });
 }
 

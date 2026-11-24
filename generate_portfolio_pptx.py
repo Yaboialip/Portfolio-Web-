@@ -36,7 +36,7 @@ def create_portfolio_deck():
     FONT_MONO = "JetBrains Mono"
     FONT_BODY = "Segoe UI"
 
-    def add_slide_background(slide, slide_num, total_slides=13, category="OPERATIONAL DOSSIER"):
+    def add_slide_background(slide, slide_num, total_slides=14, category="OPERATIONAL DOSSIER"):
         # Dark Background
         bg = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(7.5))
         bg.fill.solid()
@@ -227,12 +227,150 @@ def create_portfolio_deck():
         crun2.font.color.rgb = COLOR_YELLOW
 
     # --------------------------------------------------------------------------
-    # SLIDE 2: 4 MULTIDISCIPLINARY PROFESSIONAL ROLES / LENSES
+    # SLIDE 2: BIOGRAPHY & ACADEMIC BACKGROUND (DATA DIRI & PENDIDIKAN)
     # --------------------------------------------------------------------------
     slide2 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide2, 2, category="OPERATIONAL LENSES & CORE COMPETENCIES")
+    add_slide_background(slide2, 2, category="OPERATOR DOSSIER & ACADEMIC PROFILE")
 
-    header_box = slide2.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    h_bio = slide2.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf_bio = h_bio.text_frame
+    hp_bio = htf_bio.paragraphs[0]
+    hp_bio.add_run().text = "// BIOGRAPHICAL DOSSIER & ACADEMIC FOUNDATION\n"
+    hp_bio.runs[0].font.name = FONT_MONO
+    hp_bio.runs[0].font.size = Pt(10)
+    hp_bio.runs[0].font.color.rgb = COLOR_CYAN
+
+    hp_bio2 = hp_bio.add_run()
+    hp_bio2.text = "Personal Profile, Academic Credentials & International Study"
+    hp_bio2.font.name = FONT_DISPLAY
+    hp_bio2.font.size = Pt(22)
+    hp_bio2.font.bold = True
+    hp_bio2.font.color.rgb = COLOR_WHITE
+
+    # Left Column: Personal Profile & Specification Sheet
+    c_bio_left = add_card(slide2, Inches(0.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
+    btf = c_bio_left.text_frame
+    btf.word_wrap = True
+    btf.margin_left = Pt(16)
+    btf.margin_right = Pt(16)
+    btf.margin_top = Pt(14)
+
+    bp0 = btf.paragraphs[0]
+    bp0.add_run().text = "DATA DIRI & PROFESSIONAL IDENTITY\n"
+    bp0.runs[0].font.name = FONT_MONO
+    bp0.runs[0].font.size = Pt(10.5)
+    bp0.runs[0].font.bold = True
+    bp0.runs[0].font.color.rgb = COLOR_YELLOW
+
+    bio_items = [
+        ("Nama Lengkap:", "Alief Sukma Dewanta, S.Kom. (B.S. Information Systems)"),
+        ("Domisili & Lokasi:", "Surabaya, Jawa Timur, Indonesia (Terbuka untuk Relokasi)"),
+        ("Kontak & Email:", "aliefsd84@gmail.com  |  LinkedIn: linkedin.com/in/aliefsd84"),
+        ("Target Posisi:", "IT Project Manager, IT Business Analyst, Systems Analyst, ERP Implementor"),
+        ("Kemampuan Bahasa:", "Bahasa Indonesia (Native)  •  Bahasa Inggris (EF SET C2 Advanced, 77/100, EPrT 557)"),
+        ("Kepemimpinan Kampus:", "Ketua Dewan Perwakilan Mahasiswa (DPM Telkom University Surabaya, 40+ Anggota)"),
+        ("Asistensi Akademik:", "Asisten Laboratorium Enterprise Architecture (2 Semester Berturut-turut, TOGAF ADM 9.2)")
+    ]
+
+    for b_lbl, b_val in bio_items:
+        bp = btf.add_paragraph()
+        bp.space_before = Pt(6)
+        r1 = bp.add_run()
+        r1.text = "▸ " + b_lbl + " "
+        r1.font.name = FONT_MONO
+        r1.font.size = Pt(9)
+        r1.font.bold = True
+        r1.font.color.rgb = COLOR_CYAN
+        r2 = bp.add_run()
+        r2.text = b_val
+        r2.font.name = FONT_BODY
+        r2.font.size = Pt(9.2)
+        r2.font.color.rgb = COLOR_TEXT_PRIMARY
+
+    # Right Column: Higher Education & International Study
+    c_bio_right = add_card(slide2, Inches(6.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
+    rtf = c_bio_right.text_frame
+    rtf.word_wrap = True
+    rtf.margin_left = Pt(16)
+    rtf.margin_right = Pt(16)
+    rtf.margin_top = Pt(14)
+
+    rp0 = rtf.paragraphs[0]
+    rp0_run = rp0.add_run()
+    rp0_run.text = "RIWAYAT PENDIDIKAN TINGGI (FORMAL ACADEMIC)\n"
+    rp0_run.font.name = FONT_MONO
+    rp0_run.font.size = Pt(10.5)
+    rp0_run.font.bold = True
+    rp0_run.font.color.rgb = COLOR_CYAN
+
+    # Edu 1: Telkom
+    rp1 = rtf.add_paragraph()
+    rp1.space_before = Pt(8)
+    e1_title = rp1.add_run()
+    e1_title.text = "TELKOM UNIVERSITY SURABAYA (2022 – 2026)\n"
+    e1_title.font.name = FONT_DISPLAY
+    e1_title.font.size = Pt(12)
+    e1_title.font.bold = True
+    e1_title.font.color.rgb = COLOR_YELLOW
+
+    e1_deg = rp1.add_run()
+    e1_deg.text = "S1 Sistem Informasi (B.S. Management Information Systems)\n"
+    e1_deg.font.name = FONT_MONO
+    e1_deg.font.size = Pt(9)
+    e1_deg.font.color.rgb = COLOR_WHITE
+
+    e1_pts = [
+        "Status: Lulus Oktober 2026 (Wisuda Resmi: 26 Oktober 2026).",
+        "IPK Kumulatif: 3.66 / 4.00 (High Honors / Cum Laude).",
+        "Skripsi (Nilai A): Prediksi Harga Saham PGEO Menggunakan ARIMA-GARCH Berbasis Web.",
+        "Fokus Keilmuan: Enterprise Architecture, IT Governance, Big Data, SDLC, UAT & ERP."
+    ]
+    for pt in e1_pts:
+        p_pt = rtf.add_paragraph()
+        p_pt.space_before = Pt(3)
+        run_pt = p_pt.add_run()
+        run_pt.text = "• " + pt
+        run_pt.font.size = Pt(8.8)
+        run_pt.font.name = FONT_BODY
+        run_pt.font.color.rgb = COLOR_TEXT_PRIMARY
+
+    # Edu 2: Hanyang University
+    rp2 = rtf.add_paragraph()
+    rp2.space_before = Pt(10)
+    e2_title = rp2.add_run()
+    e2_title.text = "HANYANG UNIVERSITY, SOUTH KOREA (DES 2025 – FEB 2026)\n"
+    e2_title.font.name = FONT_DISPLAY
+    e2_title.font.size = Pt(12)
+    e2_title.font.bold = True
+    e2_title.font.color.rgb = COLOR_CYAN
+
+    e2_deg = rp2.add_run()
+    e2_deg.text = "Winter International School / Pre-Exchange Program (Seoul)\n"
+    e2_deg.font.name = FONT_MONO
+    e2_deg.font.size = Pt(9)
+    e2_deg.font.color.rgb = COLOR_WHITE
+
+    e2_pts = [
+        "Prestasi Akademik: IPK Sempurna 4.50 / 4.50 (Grade A+, A+).",
+        "Bidang Studi: Global Business, Strategic Decision Making & Marketing Services.",
+        "Kompetensi: Kolaborasi multinasional dan presentasi studi kasus lintas budaya."
+    ]
+    for pt in e2_pts:
+        p_pt = rtf.add_paragraph()
+        p_pt.space_before = Pt(3)
+        run_pt = p_pt.add_run()
+        run_pt.text = "• " + pt
+        run_pt.font.size = Pt(8.8)
+        run_pt.font.name = FONT_BODY
+        run_pt.font.color.rgb = COLOR_TEXT_PRIMARY
+
+    # --------------------------------------------------------------------------
+    # SLIDE 3: 4 MULTIDISCIPLINARY PROFESSIONAL ROLES / LENSES
+    # --------------------------------------------------------------------------
+    slide3 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide3, 3, category="OPERATIONAL LENSES & CORE COMPETENCIES")
+
+    header_box = slide3.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
     htf = header_box.text_frame
     hp = htf.paragraphs[0]
     hrun1 = hp.add_run()
@@ -298,7 +436,7 @@ def create_portfolio_deck():
     card_gap = Inches(0.20)
     for idx, (title, subtitle, accent_col, bullets) in enumerate(roles_info):
         left_pos = Inches(0.8) + idx * (card_width + card_gap)
-        rcard = add_card(slide2, left_pos, Inches(1.9), card_width, Inches(4.8), border_color=accent_col, fill_color=COLOR_BG_CARD)
+        rcard = add_card(slide3, left_pos, Inches(1.9), card_width, Inches(4.8), border_color=accent_col, fill_color=COLOR_BG_CARD)
         rtf = rcard.text_frame
         rtf.word_wrap = True
         rtf.margin_left = Pt(12)
@@ -334,29 +472,29 @@ def create_portfolio_deck():
             brun_text.font.color.rgb = COLOR_TEXT_PRIMARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 3: FEATURED PROJECT 01 — NETAFARM OKR SYSTEM (BRD & FSD)
+    # SLIDE 4: FEATURED PROJECT 01 — NETAFARM OKR SYSTEM (BRD & FSD)
     # --------------------------------------------------------------------------
-    slide3 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide3, 3, category="FLAGSHIP SYSTEM PROJECT 01")
+    slide4 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide4, 4, category="FLAGSHIP SYSTEM PROJECT 01")
 
     # Header
-    hb3 = slide3.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf3 = hb3.text_frame
-    hp3 = htf3.paragraphs[0]
-    hp3.add_run().text = "// FLAGSHIP PROJECT 01: CV. NETAFARM INDOLESTARI (SIDOARJO)\n"
-    hp3.runs[0].font.name = FONT_MONO
-    hp3.runs[0].font.size = Pt(10)
-    hp3.runs[0].font.color.rgb = COLOR_CYAN
+    hb4 = slide4.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf4 = hb4.text_frame
+    hp4 = htf4.paragraphs[0]
+    hp4.add_run().text = "// FLAGSHIP PROJECT 01: CV. NETAFARM INDOLESTARI (SIDOARJO)\n"
+    hp4.runs[0].font.name = FONT_MONO
+    hp4.runs[0].font.size = Pt(10)
+    hp4.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp3_2 = hp3.add_run()
-    hp3_2.text = "OKR & Cross-Functional Task Management System"
-    hp3_2.font.name = FONT_DISPLAY
-    hp3_2.font.size = Pt(22)
-    hp3_2.font.bold = True
-    hp3_2.font.color.rgb = COLOR_WHITE
+    hp4_2 = hp4.add_run()
+    hp4_2.text = "OKR & Cross-Functional Task Management System"
+    hp4_2.font.name = FONT_DISPLAY
+    hp4_2.font.size = Pt(22)
+    hp4_2.font.bold = True
+    hp4_2.font.color.rgb = COLOR_WHITE
 
     # Left Column: Project Overview & Artifact Highlights
-    p1_card = add_card(slide3, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
+    p1_card = add_card(slide4, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
     p1tf = p1_card.text_frame
     p1tf.word_wrap = True
     p1tf.margin_left = Pt(14)
@@ -411,53 +549,53 @@ def create_portfolio_deck():
     # Right Column: UI Screenshot Card
     neta_img = "assets/images/netafarm-admin-dashboard.png"
     if os.path.exists(neta_img):
-        add_card(slide3, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
+        add_card(slide4, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
         try:
-            slide3.shapes.add_picture(neta_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
+            slide4.shapes.add_picture(neta_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
         except Exception as e:
             print(f"Notice: Netafarm image embed failed: {e}")
         
-        cap3 = slide3.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
-        c3tf = cap3.text_frame
-        c3tf.word_wrap = True
-        c3tf.margin_top = Pt(2)
-        c3p = c3tf.paragraphs[0]
-        c3run = c3p.add_run()
-        c3run.text = "TECH STACK & METRICS:\n"
-        c3run.font.name = FONT_MONO
-        c3run.font.bold = True
-        c3run.font.size = Pt(9)
-        c3run.font.color.rgb = COLOR_YELLOW
-        c3run2 = c3p.add_run()
+        cap4 = slide4.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
+        c4tf = cap4.text_frame
+        c4tf.word_wrap = True
+        c4tf.margin_top = Pt(2)
+        c4p = c4tf.paragraphs[0]
+        c4run = c4p.add_run()
+        c4run.text = "TECH STACK & METRICS:\n"
+        c4run.font.name = FONT_MONO
+        c4run.font.bold = True
+        c4run.font.size = Pt(9)
+        c4run.font.color.rgb = COLOR_YELLOW
+        c3run2 = c4p.add_run()
         c3run2.text = "Laravel 10, MySQL 8, Bootstrap 5, Chart.js  |  CV. Netafarm Indolestari  |  Awarded Official Company Certificate of Appreciation"
         c3run2.font.name = FONT_BODY
         c3run2.font.size = Pt(8.5)
         c3run2.font.color.rgb = COLOR_TEXT_SECONDARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 4: FEATURED PROJECT 02 — E-TEMP TELEMETRY (BRD, FSD & EXCEL QA)
+    # SLIDE 5: FEATURED PROJECT 02 — E-TEMP TELEMETRY (BRD, FSD & EXCEL QA)
     # --------------------------------------------------------------------------
-    slide4 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide4, 4, category="FLAGSHIP SYSTEM PROJECT 02")
+    slide5 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide5, 5, category="FLAGSHIP SYSTEM PROJECT 02")
 
     # Header
-    hb4 = slide4.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf4 = hb4.text_frame
-    hp4 = htf4.paragraphs[0]
-    hp4.add_run().text = "// FLAGSHIP PROJECT 02: CV. DIMAS DJAYA TEKNIK (SURABAYA)\n"
-    hp4.runs[0].font.name = FONT_MONO
-    hp4.runs[0].font.size = Pt(10)
-    hp4.runs[0].font.color.rgb = COLOR_CYAN
+    hb5 = slide5.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf5 = hb5.text_frame
+    hp5 = htf5.paragraphs[0]
+    hp5.add_run().text = "// FLAGSHIP PROJECT 02: CV. DIMAS DJAYA TEKNIK (SURABAYA)\n"
+    hp5.runs[0].font.name = FONT_MONO
+    hp5.runs[0].font.size = Pt(10)
+    hp5.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp4_2 = hp4.add_run()
-    hp4_2.text = "E-Temp Industrial Cold-Chain Monitoring System"
-    hp4_2.font.name = FONT_DISPLAY
-    hp4_2.font.size = Pt(22)
-    hp4_2.font.bold = True
-    hp4_2.font.color.rgb = COLOR_WHITE
+    hp5_2 = hp5.add_run()
+    hp5_2.text = "E-Temp Industrial Cold-Chain Monitoring System"
+    hp5_2.font.name = FONT_DISPLAY
+    hp5_2.font.size = Pt(22)
+    hp5_2.font.bold = True
+    hp5_2.font.color.rgb = COLOR_WHITE
 
     # Left Column: Project Overview & 3 Artifacts
-    p2_card = add_card(slide4, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
+    p2_card = add_card(slide5, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
     p2tf = p2_card.text_frame
     p2tf.word_wrap = True
     p2tf.margin_left = Pt(14)
@@ -512,51 +650,51 @@ def create_portfolio_deck():
     # Right Column: Telemetry Screenshot Card
     etemp_img = "assets/images/etemp-dashboard.png"
     if os.path.exists(etemp_img):
-        add_card(slide4, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
+        add_card(slide5, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
         try:
-            slide4.shapes.add_picture(etemp_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
+            slide5.shapes.add_picture(etemp_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
         except Exception as e:
             print(f"Notice: E-Temp image embed failed: {e}")
         
-        cap4 = slide4.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
-        c4tf = cap4.text_frame
-        c4tf.word_wrap = True
-        c4tf.margin_top = Pt(2)
-        c4p = c4tf.paragraphs[0]
-        c4run = c4p.add_run()
-        c4run.text = "TECH STACK & METRICS:\n"
-        c4run.font.name = FONT_MONO
-        c4run.font.bold = True
-        c4run.font.size = Pt(9)
-        c4run.font.color.rgb = COLOR_CYAN
-        c4run2 = c4p.add_run()
+        cap5 = slide5.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
+        c5tf = cap5.text_frame
+        c5tf.word_wrap = True
+        c5tf.margin_top = Pt(2)
+        c5p = c5tf.paragraphs[0]
+        c5run = c5p.add_run()
+        c5run.text = "TECH STACK & METRICS:\n"
+        c5run.font.name = FONT_MONO
+        c5run.font.bold = True
+        c5run.font.size = Pt(9)
+        c5run.font.color.rgb = COLOR_CYAN
+        c4run2 = c5p.add_run()
         c4run2.text = "Laravel 11, PHP 8.2, Python API, MySQL, Chart.js  |  12 Industrial Cold Storage Machines  |  Client: CV. Dimas Djaya Teknik"
         c4run2.font.name = FONT_BODY
         c4run2.font.size = Pt(8.5)
         c4run2.font.color.rgb = COLOR_TEXT_SECONDARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 5: FEATURED PROJECT 03 — ENTERPRISE BIG DATA LAKEHOUSE (OLIST)
+    # SLIDE 6: FEATURED PROJECT 03 — ENTERPRISE BIG DATA LAKEHOUSE (OLIST)
     # --------------------------------------------------------------------------
-    slide5 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide5, 5, category="BIG DATA & ENTERPRISE ARCHITECTURE")
+    slide6 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide6, 6, category="BIG DATA & ENTERPRISE ARCHITECTURE")
 
-    hb5 = slide5.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf5 = hb5.text_frame
-    hp5 = htf5.paragraphs[0]
-    hp5.add_run().text = "// BIG DATA CAPSTONE PROJECT: E-COMMERCE ENTERPRISE LAKEHOUSE\n"
-    hp5.runs[0].font.name = FONT_MONO
-    hp5.runs[0].font.size = Pt(10)
-    hp5.runs[0].font.color.rgb = COLOR_CYAN
+    hb6 = slide6.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf6 = hb6.text_frame
+    hp6 = htf6.paragraphs[0]
+    hp6.add_run().text = "// BIG DATA CAPSTONE PROJECT: E-COMMERCE ENTERPRISE LAKEHOUSE\n"
+    hp6.runs[0].font.name = FONT_MONO
+    hp6.runs[0].font.size = Pt(10)
+    hp6.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp5_2 = hp5.add_run()
-    hp5_2.text = "Enterprise E-Commerce Big Data Lakehouse & Executive Analytics"
-    hp5_2.font.name = FONT_DISPLAY
-    hp5_2.font.size = Pt(22)
-    hp5_2.font.bold = True
-    hp5_2.font.color.rgb = COLOR_WHITE
+    hp6_2 = hp6.add_run()
+    hp6_2.text = "Enterprise E-Commerce Big Data Lakehouse & Executive Analytics"
+    hp6_2.font.name = FONT_DISPLAY
+    hp6_2.font.size = Pt(22)
+    hp6_2.font.bold = True
+    hp6_2.font.color.rgb = COLOR_WHITE
 
-    p3_card = add_card(slide5, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
+    p3_card = add_card(slide6, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
     p3tf = p3_card.text_frame
     p3tf.word_wrap = True
     p3tf.margin_left = Pt(14)
@@ -596,30 +734,30 @@ def create_portfolio_deck():
     # Right Column: Superset Dashboard Screenshot
     olist_img = "assets/images/olist-superset-overview.png"
     if os.path.exists(olist_img):
-        add_card(slide5, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
+        add_card(slide6, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
         try:
-            slide5.shapes.add_picture(olist_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
+            slide6.shapes.add_picture(olist_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
         except Exception as e:
             print(f"Notice: Olist image embed failed: {e}")
         
-        cap5 = slide5.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
-        c5tf = cap5.text_frame
-        c5tf.word_wrap = True
-        c5tf.margin_top = Pt(2)
-        c5p = c5tf.paragraphs[0]
-        c5run = c5p.add_run()
-        c5run.text = "TECH STACK & METRICS:\n"
-        c5run.font.name = FONT_MONO
-        c5run.font.bold = True
-        c5run.font.size = Pt(8.5)
-        c5run.font.color.rgb = COLOR_YELLOW
-        c5run2 = c5p.add_run()
+        cap6 = slide6.shapes.add_textbox(Inches(7.85), Inches(5.6), Inches(4.5), Inches(1.0))
+        c6tf = cap6.text_frame
+        c6tf.word_wrap = True
+        c6tf.margin_top = Pt(2)
+        c6p = c6tf.paragraphs[0]
+        c6run = c6p.add_run()
+        c6run.text = "TECH STACK & METRICS:\n"
+        c6run.font.name = FONT_MONO
+        c6run.font.bold = True
+        c6run.font.size = Pt(8.5)
+        c6run.font.color.rgb = COLOR_YELLOW
+        c5run2 = c6p.add_run()
         c5run2.text = "Hadoop HDFS, PySpark, Kafka, MLlib, Superset  |  1.5M+ Rows\n"
         c5run2.font.name = FONT_BODY
         c5run2.font.size = Pt(8)
         c5run2.font.color.rgb = COLOR_TEXT_SECONDARY
 
-        c5run3 = c5p.add_run()
+        c5run3 = c6p.add_run()
         c5run3.text = "📊 SLIDE DECK: https://drive.google.com/file/d/1-_KjfIORiWMeEm45z8R80D6LOb4IdRg4/view?usp=drive_link"
         c5run3.font.name = FONT_MONO
         c5run3.font.size = Pt(7.8)
@@ -627,25 +765,25 @@ def create_portfolio_deck():
         c5run3.font.color.rgb = COLOR_CYAN
 
     # --------------------------------------------------------------------------
-    # SLIDE 6: FEATURED PROJECT 04 — ODOO ERP IMPLEMENTATION
+    # SLIDE 7: FEATURED PROJECT 04 — ODOO ERP IMPLEMENTATION
     # --------------------------------------------------------------------------
-    slide6 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide6, 6, category="ENTERPRISE SYSTEMS IMPLEMENTATION")
+    slide7 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide7, 7, category="ENTERPRISE SYSTEMS IMPLEMENTATION")
 
-    hb6 = slide6.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf6 = hb6.text_frame
-    hp6 = htf6.paragraphs[0]
-    hp6.add_run().text = "// ENTERPRISE PROJECT 04: NUHSANTARA MERCHANDISE (SURABAYA)\n"
-    hp6.runs[0].font.name = FONT_MONO
-    hp6.runs[0].font.size = Pt(10)
-    hp6.runs[0].font.color.rgb = COLOR_CYAN
+    hb7 = slide7.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf7 = hb7.text_frame
+    hp7 = htf7.paragraphs[0]
+    hp7.add_run().text = "// ENTERPRISE PROJECT 04: NUHSANTARA MERCHANDISE (SURABAYA)\n"
+    hp7.runs[0].font.name = FONT_MONO
+    hp7.runs[0].font.size = Pt(10)
+    hp7.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp6_2 = hp6.add_run()
-    hp6_2.text = "Odoo ERP Multi-Module Implementation & Business Process Reengineering"
-    hp6_2.font.name = FONT_DISPLAY
-    hp6_2.font.size = Pt(22)
-    hp6_2.font.bold = True
-    hp6_2.font.color.rgb = COLOR_WHITE
+    hp7_2 = hp7.add_run()
+    hp7_2.text = "Odoo ERP Multi-Module Implementation & Business Process Reengineering"
+    hp7_2.font.name = FONT_DISPLAY
+    hp7_2.font.size = Pt(22)
+    hp7_2.font.bold = True
+    hp7_2.font.color.rgb = COLOR_WHITE
 
     # 3 Cards for the 3 ERP Domains
     erp_cards = [
@@ -688,7 +826,7 @@ def create_portfolio_deck():
     ec_gap = Inches(0.22)
     for idx, (title, subtitle, col, bullets) in enumerate(erp_cards):
         left_pos = Inches(0.8) + idx * (ec_width + ec_gap)
-        ec = add_card(slide6, left_pos, Inches(1.9), ec_width, Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
+        ec = add_card(slide7, left_pos, Inches(1.9), ec_width, Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
         etf = ec.text_frame
         etf.word_wrap = True
         etf.margin_left = Pt(14)
@@ -720,28 +858,28 @@ def create_portfolio_deck():
             bp.runs[1].font.color.rgb = COLOR_TEXT_PRIMARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 7: FEATURED PROJECT 05 — ORDER-TO-CASH (O2C) & INVENTORY AUTOMATION
+    # SLIDE 8: FEATURED PROJECT 05 — ORDER-TO-CASH (O2C) & INVENTORY AUTOMATION
     # --------------------------------------------------------------------------
-    slide7 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide7, 7, category="BUSINESS ANALYSIS & O2C AUTOMATION CASE STUDY")
+    slide8 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide8, 8, category="BUSINESS ANALYSIS & O2C AUTOMATION CASE STUDY")
 
-    hb7 = slide7.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf7 = hb7.text_frame
-    hp7 = htf7.paragraphs[0]
-    hp7.add_run().text = "// FLAGSHIP CASE STUDY 05: PT MAJU DISTRIBUSI NUSANTARA (B2B FMCG)\n"
-    hp7.runs[0].font.name = FONT_MONO
-    hp7.runs[0].font.size = Pt(10)
-    hp7.runs[0].font.color.rgb = COLOR_CYAN
+    hb8 = slide8.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf8 = hb8.text_frame
+    hp8 = htf8.paragraphs[0]
+    hp8.add_run().text = "// FLAGSHIP CASE STUDY 05: PT MAJU DISTRIBUSI NUSANTARA (B2B FMCG)\n"
+    hp8.runs[0].font.name = FONT_MONO
+    hp8.runs[0].font.size = Pt(10)
+    hp8.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp7_2 = hp7.add_run()
-    hp7_2.text = "Order-to-Cash (O2C) & Inventory Automation: Business Analysis Case Study"
-    hp7_2.font.name = FONT_DISPLAY
-    hp7_2.font.size = Pt(22)
-    hp7_2.font.bold = True
-    hp7_2.font.color.rgb = COLOR_WHITE
+    hp8_2 = hp8.add_run()
+    hp8_2.text = "Order-to-Cash (O2C) & Inventory Automation: Business Analysis Case Study"
+    hp8_2.font.name = FONT_DISPLAY
+    hp8_2.font.size = Pt(22)
+    hp8_2.font.bold = True
+    hp8_2.font.color.rgb = COLOR_WHITE
 
     # Left Column: Detailed Specification & Engineering Card
-    o2c_card = add_card(slide7, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
+    o2c_card = add_card(slide8, Inches(0.8), Inches(1.9), Inches(6.6), Inches(4.8), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
     o2ctf = o2c_card.text_frame
     o2ctf.word_wrap = True
     o2ctf.margin_left = Pt(14)
@@ -781,49 +919,49 @@ def create_portfolio_deck():
     # Right Column: KPI Comparison Diagram Card
     o2c_img = "assets/images/o2c-kpi-comparison.png"
     if os.path.exists(o2c_img):
-        add_card(slide7, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
+        add_card(slide8, Inches(7.7), Inches(1.9), Inches(4.8), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
         try:
-            slide7.shapes.add_picture(o2c_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
+            slide8.shapes.add_picture(o2c_img, Inches(7.85), Inches(2.1), width=Inches(4.5), height=Inches(3.3))
         except Exception as e:
             print(f"Notice: O2C image embed failed: {e}")
         
-        cap7 = slide7.shapes.add_textbox(Inches(7.85), Inches(5.55), Inches(4.5), Inches(1.1))
-        c7tf = cap7.text_frame
-        c7tf.word_wrap = True
-        c7tf.margin_top = Pt(2)
-        c7p = c7tf.paragraphs[0]
-        c7run = c7p.add_run()
-        c7run.text = "LIVE DASHBOARD & GITHUB REPO:\n"
-        c7run.font.name = FONT_MONO
-        c7run.font.bold = True
-        c7run.font.size = Pt(8.5)
-        c7run.font.color.rgb = COLOR_YELLOW
-        c7run2 = c7p.add_run()
+        cap8 = slide8.shapes.add_textbox(Inches(7.85), Inches(5.55), Inches(4.5), Inches(1.1))
+        c8tf = cap8.text_frame
+        c8tf.word_wrap = True
+        c8tf.margin_top = Pt(2)
+        c8p = c8tf.paragraphs[0]
+        c8run = c8p.add_run()
+        c8run.text = "LIVE DASHBOARD & GITHUB REPO:\n"
+        c8run.font.name = FONT_MONO
+        c8run.font.bold = True
+        c8run.font.size = Pt(8.5)
+        c8run.font.color.rgb = COLOR_YELLOW
+        c7run2 = c8p.add_run()
         c7run2.text = "Interactive Dashboard: https://yaboialip.github.io/o2c-automation-case-study/\nGitHub Repository: https://github.com/Yaboialip/o2c-automation-case-study"
         c7run2.font.name = FONT_MONO
         c7run2.font.size = Pt(7.8)
         c7run2.font.color.rgb = COLOR_CYAN
 
     # --------------------------------------------------------------------------
-    # SLIDE 8: SPECIALIZED TECHNICAL PROJECTS (GRID OF 5 PROJECTS)
+    # SLIDE 9: SPECIALIZED TECHNICAL PROJECTS (GRID OF 5 PROJECTS)
     # --------------------------------------------------------------------------
-    slide8 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide8, 8, category="TECHNICAL DOSSIER & SPECIALIZED PROJECTS")
+    slide9 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide9, 9, category="TECHNICAL DOSSIER & SPECIALIZED PROJECTS")
 
-    hb8 = slide8.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf8 = hb8.text_frame
-    hp8 = htf8.paragraphs[0]
-    hp8.add_run().text = "// ADDITIONAL SPECIALIZED ENGAGEMENTS & APPLIED RESEARCH\n"
-    hp8.runs[0].font.name = FONT_MONO
-    hp8.runs[0].font.size = Pt(10)
-    hp8.runs[0].font.color.rgb = COLOR_CYAN
+    hb9 = slide9.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf9 = hb9.text_frame
+    hp9 = htf9.paragraphs[0]
+    hp9.add_run().text = "// ADDITIONAL SPECIALIZED ENGAGEMENTS & APPLIED RESEARCH\n"
+    hp9.runs[0].font.name = FONT_MONO
+    hp9.runs[0].font.size = Pt(10)
+    hp9.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp8_2 = hp8.add_run()
-    hp8_2.text = "Enterprise Architecture, Governance, BI & Applied Machine Learning"
-    hp8_2.font.name = FONT_DISPLAY
-    hp8_2.font.size = Pt(22)
-    hp8_2.font.bold = True
-    hp8_2.font.color.rgb = COLOR_WHITE
+    hp9_2 = hp9.add_run()
+    hp9_2.text = "Enterprise Architecture, Governance, BI & Applied Machine Learning"
+    hp9_2.font.name = FONT_DISPLAY
+    hp9_2.font.size = Pt(22)
+    hp9_2.font.bold = True
+    hp9_2.font.color.rgb = COLOR_WHITE
 
     spec_projects = [
         (
@@ -874,7 +1012,7 @@ def create_portfolio_deck():
             left_pos = Inches(6.8)
             c_width = Inches(5.7)
 
-        sp_card = add_card(slide8, left_pos, top_pos, c_width, Inches(1.48) if idx < 3 else Inches(2.28), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
+        sp_card = add_card(slide9, left_pos, top_pos, c_width, Inches(1.48) if idx < 3 else Inches(2.28), border_color=COLOR_BORDER, fill_color=COLOR_BG_CARD)
         sptf = sp_card.text_frame
         sptf.word_wrap = True
         sptf.margin_left = Pt(12)
@@ -908,27 +1046,27 @@ def create_portfolio_deck():
         p_tags.runs[0].font.color.rgb = COLOR_YELLOW
 
     # --------------------------------------------------------------------------
-    # SLIDE 9: PEER-REVIEWED SCIENTIFIC RESEARCH PUBLICATION (TOGAF ADM 9.2)
+    # SLIDE 10: PEER-REVIEWED SCIENTIFIC RESEARCH PUBLICATION (TOGAF ADM 9.2)
     # --------------------------------------------------------------------------
-    slide9 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide9, 9, category="DECLASSIFIED SCIENTIFIC RESEARCH")
+    slide10 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide10, 10, category="DECLASSIFIED SCIENTIFIC RESEARCH")
 
-    hb9 = slide9.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf9 = hb9.text_frame
-    hp9 = htf9.paragraphs[0]
-    hp9.add_run().text = "// PEER-REVIEWED SCIENTIFIC PUBLICATION: SINTA 2 ACCREDITED JOURNAL\n"
-    hp9.runs[0].font.name = FONT_MONO
-    hp9.runs[0].font.size = Pt(10)
-    hp9.runs[0].font.color.rgb = COLOR_YELLOW
+    hb10 = slide10.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf10 = hb10.text_frame
+    hp10 = htf10.paragraphs[0]
+    hp10.add_run().text = "// PEER-REVIEWED SCIENTIFIC PUBLICATION: SINTA 2 ACCREDITED JOURNAL\n"
+    hp10.runs[0].font.name = FONT_MONO
+    hp10.runs[0].font.size = Pt(10)
+    hp10.runs[0].font.color.rgb = COLOR_YELLOW
 
-    hp9_2 = hp9.add_run()
-    hp9_2.text = "Enterprise Architecture Design for Digital Village Public Services"
-    hp9_2.font.name = FONT_DISPLAY
-    hp9_2.font.size = Pt(22)
-    hp9_2.font.bold = True
-    hp9_2.font.color.rgb = COLOR_WHITE
+    hp10_2 = hp10.add_run()
+    hp10_2.text = "Enterprise Architecture Design for Digital Village Public Services"
+    hp10_2.font.name = FONT_DISPLAY
+    hp10_2.font.size = Pt(22)
+    hp10_2.font.bold = True
+    hp10_2.font.color.rgb = COLOR_WHITE
 
-    pub_card = add_card(slide9, Inches(0.8), Inches(1.9), Inches(11.7), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
+    pub_card = add_card(slide10, Inches(0.8), Inches(1.9), Inches(11.7), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
     pubtf = pub_card.text_frame
     pubtf.word_wrap = True
     pubtf.margin_left = Pt(20)
@@ -989,25 +1127,25 @@ def create_portfolio_deck():
     rg_run.font.color.rgb = COLOR_YELLOW
 
     # --------------------------------------------------------------------------
-    # SLIDE 10: CAREER TRACK & LEADERSHIP RECORD
+    # SLIDE 11: CAREER TRACK & LEADERSHIP RECORD
     # --------------------------------------------------------------------------
-    slide10 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide10, 10, category="CAREER TIMELINE & LEADERSHIP")
+    slide11 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide11, 11, category="CAREER TIMELINE & LEADERSHIP")
 
-    hb10 = slide10.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf10 = hb10.text_frame
-    hp10 = htf10.paragraphs[0]
-    hp10.add_run().text = "// PROFESSIONAL EXPERIENCE & LEADERSHIP ROLES\n"
-    hp10.runs[0].font.name = FONT_MONO
-    hp10.runs[0].font.size = Pt(10)
-    hp10.runs[0].font.color.rgb = COLOR_CYAN
+    hb11 = slide11.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf11 = hb11.text_frame
+    hp11 = htf11.paragraphs[0]
+    hp11.add_run().text = "// PROFESSIONAL EXPERIENCE & LEADERSHIP ROLES\n"
+    hp11.runs[0].font.name = FONT_MONO
+    hp11.runs[0].font.size = Pt(10)
+    hp11.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp10_2 = hp10.add_run()
-    hp10_2.text = "Practical Industry Experience, Academic Mentorship & Organizational Leadership"
-    hp10_2.font.name = FONT_DISPLAY
-    hp10_2.font.size = Pt(22)
-    hp10_2.font.bold = True
-    hp10_2.font.color.rgb = COLOR_WHITE
+    hp11_2 = hp11.add_run()
+    hp11_2.text = "Practical Industry Experience, Academic Mentorship & Organizational Leadership"
+    hp11_2.font.name = FONT_DISPLAY
+    hp11_2.font.size = Pt(22)
+    hp11_2.font.bold = True
+    hp11_2.font.color.rgb = COLOR_WHITE
 
     roles_timeline = [
         (
@@ -1047,7 +1185,7 @@ def create_portfolio_deck():
 
     for idx, (title, org, col, bullets) in enumerate(roles_timeline):
         left_pos = Inches(0.8) + idx * Inches(3.97)
-        t_card = add_card(slide10, left_pos, Inches(1.9), Inches(3.78), Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
+        t_card = add_card(slide11, left_pos, Inches(1.9), Inches(3.78), Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
         ttf = t_card.text_frame
         ttf.word_wrap = True
         ttf.margin_left = Pt(12)
@@ -1079,25 +1217,25 @@ def create_portfolio_deck():
             bp.runs[1].font.color.rgb = COLOR_TEXT_PRIMARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 11: FORMAL CERTIFICATIONS & CREDENTIALS
+    # SLIDE 12: FORMAL CERTIFICATIONS & CREDENTIALS
     # --------------------------------------------------------------------------
-    slide11 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide11, 11, category="VERIFIED CREDENTIALS & CERTIFICATIONS")
+    slide12 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide12, 12, category="VERIFIED CREDENTIALS & CERTIFICATIONS")
 
-    hb11 = slide11.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf11 = hb11.text_frame
-    hp11 = htf11.paragraphs[0]
-    hp11.add_run().text = "// FORMAL INDUSTRY CERTIFICATIONS & ACADEMIC ACCREDITATION\n"
-    hp11.runs[0].font.name = FONT_MONO
-    hp11.runs[0].font.size = Pt(10)
-    hp11.runs[0].font.color.rgb = COLOR_CYAN
+    hb12 = slide12.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf12 = hb12.text_frame
+    hp12 = htf12.paragraphs[0]
+    hp12.add_run().text = "// FORMAL INDUSTRY CERTIFICATIONS & ACADEMIC ACCREDITATION\n"
+    hp12.runs[0].font.name = FONT_MONO
+    hp12.runs[0].font.size = Pt(10)
+    hp12.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp11_2 = hp11.add_run()
-    hp11_2.text = "Verified Industry Credentials Across Project Management, Systems Analysis & SAP"
-    hp11_2.font.name = FONT_DISPLAY
-    hp11_2.font.size = Pt(22)
-    hp11_2.font.bold = True
-    hp11_2.font.color.rgb = COLOR_WHITE
+    hp12_2 = hp12.add_run()
+    hp12_2.text = "Verified Industry Credentials Across Project Management, Systems Analysis & SAP"
+    hp12_2.font.name = FONT_DISPLAY
+    hp12_2.font.size = Pt(22)
+    hp12_2.font.bold = True
+    hp12_2.font.color.rgb = COLOR_WHITE
 
     certs_data = [
         (
@@ -1144,7 +1282,7 @@ def create_portfolio_deck():
         c_left = Inches(0.8) + col_idx * Inches(3.97)
         c_top = Inches(1.9) + row * Inches(2.45)
 
-        cc = add_card(slide11, c_left, c_top, Inches(3.78), Inches(2.25), border_color=col, fill_color=COLOR_BG_CARD)
+        cc = add_card(slide12, c_left, c_top, Inches(3.78), Inches(2.25), border_color=col, fill_color=COLOR_BG_CARD)
         ctf = cc.text_frame
         ctf.word_wrap = True
         ctf.margin_left = Pt(12)
@@ -1171,25 +1309,25 @@ def create_portfolio_deck():
         cp_desc.runs[0].font.color.rgb = COLOR_TEXT_PRIMARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 12: TECHNICAL & MANAGEMENT SKILLS MATRIX
+    # SLIDE 13: TECHNICAL & MANAGEMENT SKILLS MATRIX
     # --------------------------------------------------------------------------
-    slide12 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide12, 12, category="TECHNICAL SKILLS & TOOLING MATRIX")
+    slide13 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide13, 13, category="TECHNICAL SKILLS & TOOLING MATRIX")
 
-    hb12 = slide12.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf12 = hb12.text_frame
-    hp12 = htf12.paragraphs[0]
-    hp12.add_run().text = "// TOOLING & METHODOLOGY REPERTOIRE\n"
-    hp12.runs[0].font.name = FONT_MONO
-    hp12.runs[0].font.size = Pt(10)
-    hp12.runs[0].font.color.rgb = COLOR_CYAN
+    hb13 = slide13.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf13 = hb13.text_frame
+    hp13 = htf13.paragraphs[0]
+    hp13.add_run().text = "// TOOLING & METHODOLOGY REPERTOIRE\n"
+    hp13.runs[0].font.name = FONT_MONO
+    hp13.runs[0].font.size = Pt(10)
+    hp13.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp12_2 = hp12.add_run()
-    hp12_2.text = "Comprehensive Competency Matrix Across Governance, Data, & Architecture"
-    hp12_2.font.name = FONT_DISPLAY
-    hp12_2.font.size = Pt(22)
-    hp12_2.font.bold = True
-    hp12_2.font.color.rgb = COLOR_WHITE
+    hp13_2 = hp13.add_run()
+    hp13_2.text = "Comprehensive Competency Matrix Across Governance, Data, & Architecture"
+    hp13_2.font.name = FONT_DISPLAY
+    hp13_2.font.size = Pt(22)
+    hp13_2.font.bold = True
+    hp13_2.font.color.rgb = COLOR_WHITE
 
     skills_pillars = [
         (
@@ -1231,7 +1369,7 @@ def create_portfolio_deck():
     p_gap = Inches(0.20)
     for idx, (pillar_name, col, items) in enumerate(skills_pillars):
         c_left = Inches(0.8) + idx * (p_width + p_gap)
-        sk_card = add_card(slide11, c_left, Inches(1.9), p_width, Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
+        sk_card = add_card(slide13, c_left, Inches(1.9), p_width, Inches(4.8), border_color=col, fill_color=COLOR_BG_CARD)
         sktf = sk_card.text_frame
         sktf.word_wrap = True
         sktf.margin_left = Pt(14)
@@ -1262,41 +1400,41 @@ def create_portfolio_deck():
             v_run.font.color.rgb = COLOR_TEXT_SECONDARY
 
     # --------------------------------------------------------------------------
-    # SLIDE 13: CONTACT & DISPATCH (TACTICAL CALL TO ACTION)
+    # SLIDE 14: CONTACT & DISPATCH (TACTICAL CALL TO ACTION)
     # --------------------------------------------------------------------------
-    slide13 = prs.slides.add_slide(blank_layout)
-    add_slide_background(slide13, 13, category="COMMUNICATION CHANNELS & DISPATCH")
+    slide14 = prs.slides.add_slide(blank_layout)
+    add_slide_background(slide14, 14, category="COMMUNICATION CHANNELS & DISPATCH")
 
     # Header
-    hb13 = slide13.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
-    htf13 = hb13.text_frame
-    hp13 = htf13.paragraphs[0]
-    hp13.add_run().text = "// INITIATE COMMUNICATION: OPEN FOR IMMEDIATE OPPORTUNITIES\n"
-    hp13.runs[0].font.name = FONT_MONO
-    hp13.runs[0].font.size = Pt(10)
-    hp13.runs[0].font.color.rgb = COLOR_CYAN
+    hb14 = slide14.shapes.add_textbox(Inches(0.8), Inches(1.0), Inches(11.7), Inches(0.8))
+    htf14 = hb14.text_frame
+    hp14 = htf14.paragraphs[0]
+    hp14.add_run().text = "// INITIATE COMMUNICATION: OPEN FOR IMMEDIATE OPPORTUNITIES\n"
+    hp14.runs[0].font.name = FONT_MONO
+    hp14.runs[0].font.size = Pt(10)
+    hp14.runs[0].font.color.rgb = COLOR_CYAN
 
-    hp13_2 = hp13.add_run()
-    hp13_2.text = "Let's Build Resilient, High-Impact IT Systems Together"
-    hp13_2.font.name = FONT_DISPLAY
-    hp13_2.font.size = Pt(22)
-    hp13_2.font.bold = True
-    hp13_2.font.color.rgb = COLOR_WHITE
+    hp14_2 = hp14.add_run()
+    hp14_2.text = "Let's Build Resilient, High-Impact IT Systems Together"
+    hp14_2.font.name = FONT_DISPLAY
+    hp14_2.font.size = Pt(22)
+    hp14_2.font.bold = True
+    hp14_2.font.color.rgb = COLOR_WHITE
 
     # Left Box: Roles of Interest
-    c13_left = add_card(slide13, Inches(0.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
-    c13tf = c13_left.text_frame
-    c13tf.word_wrap = True
-    c13tf.margin_left = Pt(16)
-    c13tf.margin_right = Pt(16)
-    c13tf.margin_top = Pt(14)
+    c14_left = add_card(slide14, Inches(0.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_YELLOW, fill_color=COLOR_BG_CARD)
+    c14tf = c14_left.text_frame
+    c14tf.word_wrap = True
+    c14tf.margin_left = Pt(16)
+    c14tf.margin_right = Pt(16)
+    c14tf.margin_top = Pt(14)
 
-    c13p = c13tf.paragraphs[0]
-    c13p.add_run().text = "TARGET ROLES & AVAILABILITY\n"
-    c13p.runs[0].font.name = FONT_MONO
-    c13p.runs[0].font.size = Pt(10.5)
-    c13p.runs[0].font.bold = True
-    c13p.runs[0].font.color.rgb = COLOR_YELLOW
+    c14p = c14tf.paragraphs[0]
+    c14p.add_run().text = "TARGET ROLES & AVAILABILITY\n"
+    c14p.runs[0].font.name = FONT_MONO
+    c14p.runs[0].font.size = Pt(10.5)
+    c14p.runs[0].font.bold = True
+    c14p.runs[0].font.color.rgb = COLOR_YELLOW
 
     c13_roles = [
         ("IT Project Manager / Project Coordinator", "Governing sprint schedules, team velocity, WBS dependencies, and UAT sign-off."),
@@ -1306,7 +1444,7 @@ def create_portfolio_deck():
     ]
 
     for r_title, r_desc in c13_roles:
-        rp = c13tf.add_paragraph()
+        rp = c14tf.add_paragraph()
         rp.space_before = Pt(8)
         rt_run = rp.add_run()
         rt_run.text = "• " + r_title + "\n"
@@ -1321,14 +1459,14 @@ def create_portfolio_deck():
         rd_run.font.color.rgb = COLOR_TEXT_PRIMARY
 
     # Right Box: Direct Channels & Links
-    c13_right = add_card(slide13, Inches(6.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
-    rtf13 = c13_right.text_frame
-    rtf13.word_wrap = True
-    rtf13.margin_left = Pt(16)
-    rtf13.margin_right = Pt(16)
-    rtf13.margin_top = Pt(14)
+    c14_right = add_card(slide14, Inches(6.8), Inches(1.9), Inches(5.7), Inches(4.8), border_color=COLOR_CYAN, fill_color=COLOR_BG_CARD)
+    rtf14 = c14_right.text_frame
+    rtf14.word_wrap = True
+    rtf14.margin_left = Pt(16)
+    rtf14.margin_right = Pt(16)
+    rtf14.margin_top = Pt(14)
 
-    rp1 = rtf13.paragraphs[0]
+    rp1 = rtf14.paragraphs[0]
     rp1.add_run().text = "DIRECT CONTACT FREQUENCIES\n"
     rp1.runs[0].font.name = FONT_MONO
     rp1.runs[0].font.size = Pt(10.5)
@@ -1343,7 +1481,7 @@ def create_portfolio_deck():
     ]
 
     for ch_lbl, ch_val, ch_note in channels:
-        cp = rtf13.add_paragraph()
+        cp = rtf14.add_paragraph()
         cp.space_before = Pt(8)
         c_lbl = cp.add_run()
         c_lbl.text = "▸ " + ch_lbl + "\n"
@@ -1365,7 +1503,7 @@ def create_portfolio_deck():
     # Save to assets/Alief_Sukma_Dewanta_Portfolio.pptx
     output_path = "assets/Alief_Sukma_Dewanta_Portfolio.pptx"
     prs.save(output_path)
-    print(f"[SUCCESS] Generated 13-slide executive portfolio presentation deck: {output_path}")
+    print(f"[SUCCESS] Generated 14-slide executive portfolio presentation deck: {output_path}")
 
 if __name__ == "__main__":
     create_portfolio_deck()

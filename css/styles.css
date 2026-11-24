@@ -31,11 +31,11 @@
   --cp-border-cyan: #00F0FF;
   --cp-border-yellow: #FCEE0A;
 
-  /* High-Contrast Typography */
+  /* High-Contrast Typography (WCAG AA Compliant) */
   --cp-text-bright: #FFFFFF;
-  --cp-text-primary: #ECEFF4;
-  --cp-text-secondary: #9BA8BA;
-  --cp-text-muted: #5D6C82;
+  --cp-text-primary: #F1F5F9;
+  --cp-text-secondary: #CBD5E1;
+  --cp-text-muted: #94A3B8;
 
   /* Typography Families */
   --font-display: 'Rajdhani', -apple-system, sans-serif;
@@ -105,6 +105,56 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   background-color: var(--cp-bg);
+}
+
+/* Typography Hierarchy & Polish */
+h1, h2, h3, h4, .section-title, .hero-headline, .project-title {
+  text-wrap: balance;
+}
+
+p, .project-outcome, .section-description, .about-body p {
+  text-wrap: pretty;
+}
+
+/* Tabular Nums for Counters, Dates, Telemetry, and Tables */
+.telemetry-time,
+.kpi-score-val,
+.pub-metric-num,
+.hero-stat-num,
+.specs-vault-table,
+.mono-date,
+time {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Remove Embellishments (Rule 13) */
+.blueprint-corner {
+  display: none !important;
+}
+
+/* Clean Geometry & Unslop Overrides (Rules 5, 13, 14) */
+.spotlight-card,
+.project-card,
+.specialized-card,
+.pub-card,
+.cert-card,
+.edu-card,
+.about-facts-card,
+.about-callout,
+.contact-form-panel,
+.specs-vault-card {
+  clip-path: none !important;
+  border-radius: 12px;
+}
+
+.tag-pill,
+.project-role-badge,
+.pub-pill,
+.role-lens-btn,
+.nav-dropdown-badge {
+  clip-path: none !important;
+  border-radius: 9999px;
 }
 
 /* Tactical Dot Grid Background Texture (Placed behind content to avoid darkening page) */
@@ -410,6 +460,11 @@ p {
   color: #06080D;
 }
 
+.nav-dropdown-badge.doc {
+  background-color: #2563EB;
+  color: #FFFFFF;
+}
+
 [data-theme="light"] .nav-dropdown-menu {
   background-color: rgba(255, 255, 255, 0.98);
   border-color: var(--cp-border-dim);
@@ -498,35 +553,38 @@ p {
   border-bottom: 1px solid var(--cp-border-dim);
 }
 
-/* --- 5. TACTICAL BUTTONS & INTERACTIVE ELEMENTS --- */
+/* --- 5. TACTICAL BUTTONS & INTERACTIVE ELEMENTS (UNSLOPPED) --- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  padding: 0.7rem 1.4rem;
-  clip-path: var(--chamfer-btn);
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
   cursor: pointer;
-  border: none;
-  transition: all var(--transition);
+  border: 1px solid transparent;
+  transition: all 0.16s ease-in-out;
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
   background-color: var(--cp-yellow);
   color: #06080D;
-  box-shadow: 0 0 12px rgba(252, 238, 10, 0.35);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 16px rgba(252, 238, 10, 0.3);
 }
 
 .btn-primary:hover {
   background-color: #FFF235;
-  box-shadow: 0 0 22px rgba(252, 238, 10, 0.6);
-  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 24px rgba(252, 238, 10, 0.5);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -538,8 +596,8 @@ p {
 .btn-secondary:hover {
   border-color: var(--cp-cyan);
   color: var(--cp-cyan);
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .btn-cyan {
@@ -550,21 +608,32 @@ p {
 
 .btn-cyan:hover {
   background-color: #38F4FF;
-  box-shadow: 0 0 24px rgba(0, 240, 255, 0.6);
-  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.55);
+  transform: translateY(-1px);
 }
 
 .btn-sm {
-  padding: 0.45rem 0.95rem;
-  font-size: 0.78rem;
-  clip-path: var(--chamfer-xs);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
 }
 
 .btn-group {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.85rem;
+}
+
+/* Spinner for Loading State (Rule 19) */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* --- 6. HERO SECTION: TACTICAL OPERATOR HUD --- */
@@ -584,54 +653,85 @@ p {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
 }
 
-.hero-pill {
+.hero-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background-color: var(--cp-bg-surface);
   border: 1px solid var(--cp-border-dim);
-  border-left: 3px solid var(--cp-cyan);
-  padding: 0.4rem 0.85rem;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--cp-text-bright);
-  clip-path: var(--chamfer-xs);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  color: var(--cp-text-secondary);
+  border-radius: 9999px;
+  font-weight: 500;
 }
 
-.hero-pill-dot {
-  width: 7px;
-  height: 7px;
-  background-color: var(--cp-cyan);
-  box-shadow: 0 0 8px var(--cp-cyan);
-  animation: pulse-telemetry 2s infinite;
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  flex-shrink: 0;
 }
 
-@keyframes pulse-telemetry {
-  0%, 100% { opacity: 0.6; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
-
-.hero-telemetry-badge {
+.hero-time-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background-color: var(--cp-bg-surface);
+  gap: 0.4rem;
+  background-color: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--cp-border-dim);
-  border-left: 3px solid var(--cp-yellow);
-  padding: 0.4rem 0.85rem;
-  font-family: var(--font-mono);
+  padding: 0.35rem 0.75rem;
   font-size: 0.78rem;
-  color: var(--cp-text-secondary);
-  clip-path: var(--chamfer-xs);
+  color: var(--cp-text-muted);
+  border-radius: 9999px;
 }
 
 .telemetry-time {
+  color: var(--cp-cyan);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hero Download Dossier Pill (Rule 10: Emphasize CTA) */
+.hero-download-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cp-bg-surface);
+  border: 1px solid var(--cp-border-dim);
+  border-radius: 9999px;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.82rem;
+  color: var(--cp-text-secondary);
+}
+
+.hero-download-label {
+  font-weight: 600;
+  color: var(--cp-text-muted);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-quick-link {
+  color: var(--cp-cyan);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.hero-quick-link:hover {
   color: var(--cp-yellow);
-  font-weight: 700;
+  text-decoration: underline;
+}
+
+.hero-quick-sep {
+  color: var(--cp-border-dim);
 }
 
 .hero-headline {
@@ -691,27 +791,27 @@ p {
   margin-top: 0.25rem;
 }
 
-/* Portrait Card: Cyberware Frame */
+/* Portrait Card Frame (Rule 14: Inner radius = outer - padding) */
 .hero-portrait-card {
   position: relative;
   background-color: var(--cp-bg-surface);
   border: 1px solid var(--cp-border-dim);
-  clip-path: var(--chamfer-md);
-  padding: 1rem;
-  box-shadow: var(--shadow-dock);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: all var(--transition);
 }
 
 .hero-portrait-card:hover {
   border-color: var(--cp-cyan);
-  box-shadow: var(--shadow-cyan-glow);
-  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .hero-portrait-frame {
   position: relative;
   overflow: hidden;
-  clip-path: var(--chamfer-sm);
+  border-radius: 6px;
   background: #000;
   aspect-ratio: 4 / 5;
 }
@@ -727,21 +827,28 @@ p {
 }
 
 .hero-portrait-card:hover .hero-portrait-frame img {
-  transform: scale(1.03);
-  filter: contrast(1.1) brightness(1.02);
+  transform: scale(1.02);
+  filter: contrast(1.08) brightness(1.02);
 }
 
 .hero-portrait-caption {
-  margin-top: 0.85rem;
+  margin-top: 0.75rem;
   padding: 0.5rem 0.75rem;
   background-color: var(--cp-bg);
   border-left: 2px solid var(--cp-yellow);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--cp-text-secondary);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--cp-text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.hero-portrait-role {
+  font-size: 0.75rem;
+  color: var(--cp-cyan);
+  font-weight: 500;
 }
 
 /* --- 7. TACTICAL RETICLES & BLUEPRINT CORNERS --- */
@@ -935,16 +1042,17 @@ p {
 .project-card {
   background-color: var(--cp-bg-surface);
   border: 1px solid var(--cp-border-dim);
-  clip-path: var(--chamfer-lg);
-  box-shadow: var(--shadow-dock);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   position: relative;
   transition: all var(--transition);
 }
 
 .project-card:hover {
   border-color: var(--cp-cyan);
-  box-shadow: var(--shadow-cyan-glow);
-  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .project-layout {
@@ -1007,11 +1115,12 @@ p {
 }
 
 .mono-date {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--cp-text-muted);
   white-space: nowrap;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .project-title {
@@ -1026,6 +1135,128 @@ p {
   font-weight: 500;
   margin-bottom: 1.25rem;
   line-height: 1.5;
+}
+
+/* Project KPI Scoreboard (Simulated Benchmark Metric Grid) */
+.project-kpi-scoreboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+  margin-bottom: 1.25rem;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  padding: 0.75rem;
+  border-radius: 4px;
+  box-shadow: inset 0 0 12px rgba(0, 240, 255, 0.05);
+}
+
+.kpi-score-item {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--cp-cyan);
+  padding-left: 0.55rem;
+}
+
+.kpi-score-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--cp-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.kpi-score-val {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cp-yellow);
+  margin-top: 0.15rem;
+}
+
+.kpi-score-delta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cp-cyan);
+  margin-top: 0.1rem;
+}
+
+/* Verified Specifications Vault / Due Diligence Ledger */
+.specs-vault-card {
+  margin-top: 3.5rem;
+  padding: 1.85rem;
+  background: var(--cp-bg-surface);
+  border: 1px solid var(--cp-border-dim);
+  position: relative;
+}
+
+.specs-vault-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cp-border-dim);
+}
+
+.specs-vault-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cp-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.specs-vault-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.specs-vault-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.specs-vault-table th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cp-cyan);
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid var(--cp-cyan);
+  background: rgba(0, 240, 255, 0.04);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.specs-vault-table td {
+  padding: 0.85rem;
+  border-bottom: 1px solid var(--cp-border-dim);
+  color: var(--cp-text-primary);
+  vertical-align: middle;
+}
+
+.specs-vault-table tr:hover td {
+  background: rgba(254, 231, 21, 0.02);
+}
+
+.specs-artifact-type {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--cp-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  white-space: nowrap;
 }
 
 /* Data-Shard System for Project Deliverables */
@@ -1044,18 +1275,18 @@ p {
 }
 
 .shard-slot-btn {
-  background: var(--cp-bg-card);
+  background: var(--cp-bg-surface);
   border: 1px solid var(--cp-border-dim);
   color: var(--cp-text-secondary);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 0.35rem 0.75rem;
-  clip-path: var(--chamfer-xs);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.38rem 0.85rem;
+  border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   transition: all var(--transition);
 }
 
@@ -1068,17 +1299,17 @@ p {
   background-color: var(--cp-cyan-soft);
   border-color: var(--cp-cyan);
   color: var(--cp-cyan);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
 }
 
 .shard-readout-terminal {
   background-color: var(--cp-bg);
   border: 1px solid var(--cp-border-dim);
   border-left: 3px solid var(--cp-cyan);
-  padding: 1.25rem;
-  clip-path: var(--chamfer-xs);
+  padding: 1.15rem 1.25rem;
+  border-radius: 8px;
   position: relative;
-  min-height: 110px;
+  min-height: 100px;
 }
 
 .shard-terminal-header {
@@ -1086,19 +1317,19 @@ p {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
   color: var(--cp-text-muted);
 }
 
 .shard-terminal-title {
   color: var(--cp-cyan);
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .shard-terminal-text {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--cp-text-primary);
   line-height: 1.6;
 }
@@ -1108,8 +1339,8 @@ p {
   border-left: 2px solid var(--cp-yellow);
   padding: 0.65rem 1rem;
   margin-bottom: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
   color: var(--cp-text-secondary);
 }
 
@@ -2010,6 +2241,10 @@ p {
 }
 
 @media (max-width: 768px) {
+  .project-kpi-scoreboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .hero-headline {
     font-size: 2.4rem;
   }
